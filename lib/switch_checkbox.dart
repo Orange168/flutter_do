@@ -56,26 +56,42 @@ class _SwitchCheckboxState extends State<_SwitchCheckboxWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Center(
+        child: Column(
       children: <Widget>[
-        Switch(
-          value: switchSelected,
-          onChanged: (value) {
-            setState(() {
-              switchSelected = value;
-            });
-          },
+        Row(
+          children: <Widget>[
+            Switch(
+              value: switchSelected,
+              activeColor: Colors.deepOrange,
+              activeTrackColor: Colors.amber,
+              inactiveThumbColor: Colors.cyanAccent,
+              inactiveTrackColor: Colors.deepPurple,
+              onChanged: (value) {
+                setState(() {
+                  switchSelected = value;
+                });
+              },
+            ),
+            Text(switchSelected ? "选中" : "未选中"),
+          ],
         ),
-        Checkbox(
-          value: checkboxSelected,
-          activeColor: Colors.lightBlueAccent, //选中时的颜色
-          onChanged: (value) {
-            setState(() {
-              checkboxSelected = value;
-            });
-          },
-        )
+        Row(
+          children: <Widget>[
+            Checkbox(
+              value: checkboxSelected,
+              activeColor: Colors.deepOrange,
+              checkColor: Colors.amber,
+              onChanged: (value) {
+                setState(() {
+                  checkboxSelected = value;
+                });
+              },
+            ),
+            Text(checkboxSelected ? "选中" : "未选中"),
+          ],
+        ),
       ],
-    );
+    ));
   }
 }
