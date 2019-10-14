@@ -39,7 +39,10 @@ class TextHomePage extends StatelessWidget {
               "hello world,I am leavesc",
               textAlign: TextAlign.start,
               textScaleFactor: 1,
-              style: TextStyle(fontSize: 18, color: Colors.deepOrange[400]),
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.deepOrange[400],
+              ),
             ),
             Text(
               "hello world,I am leavesc",
@@ -63,6 +66,25 @@ class TextHomePage extends StatelessWidget {
                   shadows: [Shadow(offset: Offset(2, 2), blurRadius: 2.0)]),
             ),
             TextSpanWidget(),
+            Text(
+              "普通字体！",
+              textAlign: TextAlign.start,
+              textScaleFactor: 1,
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.deepOrange[400],
+              ),
+            ),
+            Text(
+              "引用外部字体！",
+              textAlign: TextAlign.start,
+              textScaleFactor: 1,
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.deepOrange[400],
+                fontFamily: 'Light',
+              ),
+            ),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_do/button.dart';
 import 'package:flutter_do/route.dart';
 import 'package:flutter_do/text.dart';
 
@@ -20,6 +21,12 @@ class MyApp extends StatelessWidget {
           case RoutePageAll.route_text:
             {
               builder = (BuildContext context) => new TextPage();
+              break;
+            }
+          case RoutePageAll.route_button:
+            {
+              builder = (BuildContext context) => new ButtonPage();
+              break;
             }
         }
         return MaterialPageRoute(builder: builder, settings: settings);
@@ -51,6 +58,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("Text"),
               onPressed: () {
                 Navigator.of(context).pushNamed(RoutePageAll.route_text);
+              },
+            ),
+            RaisedButton(
+              child: Text("Button"),
+              onPressed: () {
+                Navigator.of(context).pushNamed(RoutePageAll.route_button);
               },
             )
           ],
