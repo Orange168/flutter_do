@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_do/button.dart';
 import 'package:flutter_do/image.dart';
+import 'package:flutter_do/progress.dart';
 import 'package:flutter_do/route.dart';
 import 'package:flutter_do/switch_checkbox.dart';
 import 'package:flutter_do/text.dart';
@@ -38,6 +39,11 @@ class MyApp extends StatelessWidget {
           case RoutePageAll.route_switchCheckbox:
             {
               builder = (BuildContext context) => new SwitchCheckboxPage();
+              break;
+            }
+          case RoutePageAll.route_progress:
+            {
+              builder = (BuildContext context) => new ProgressPage();
               break;
             }
         }
@@ -82,6 +88,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 context: context,
                 title: "Switch_Checkbox",
                 routePath: RoutePageAll.route_switchCheckbox),
+            _generateButton(
+                context: context,
+                title: "Progress",
+                routePath: RoutePageAll.route_progress),
           ],
         ),
       ),

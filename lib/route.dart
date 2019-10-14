@@ -6,4 +6,6 @@ class RoutePageAll {
   static const route_image = "/image";
 
   static const route_switchCheckbox = "/switchCheckbox";
+
+  static const route_progress = "/progress";
 }
