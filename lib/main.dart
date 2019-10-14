@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/button.dart';
 import 'package:flutter_do/image.dart';
 import 'package:flutter_do/route.dart';
+import 'package:flutter_do/switch_checkbox.dart';
 import 'package:flutter_do/text.dart';
 
 void main() => runApp(MyApp());
@@ -34,6 +35,11 @@ class MyApp extends StatelessWidget {
               builder = (BuildContext context) => new ImagePage();
               break;
             }
+          case RoutePageAll.route_switchCheckbox:
+            {
+              builder = (BuildContext context) => new SwitchCheckboxPage();
+              break;
+            }
         }
         return MaterialPageRoute(builder: builder, settings: settings);
       },
@@ -60,27 +66,35 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            RaisedButton(
-              child: Text("Text"),
-              onPressed: () {
-                Navigator.of(context).pushNamed(RoutePageAll.route_text);
-              },
-            ),
-            RaisedButton(
-              child: Text("Button"),
-              onPressed: () {
-                Navigator.of(context).pushNamed(RoutePageAll.route_button);
-              },
-            ),
-            RaisedButton(
-              child: Text("Image"),
-              onPressed: () {
-                Navigator.of(context).pushNamed(RoutePageAll.route_image);
-              },
-            )
+            _generateButton(
+                context: context,
+                title: "Text",
+                routePath: RoutePageAll.route_text),
+            _generateButton(
+                context: context,
+                title: "Button",
+                routePath: RoutePageAll.route_button),
+            _generateButton(
+                context: context,
+                title: "Image",
+                routePath: RoutePageAll.route_image),
+            _generateButton(
+                context: context,
+                title: "Switch_Checkbox",
+                routePath: RoutePageAll.route_switchCheckbox),
           ],
         ),
       ),
     );
   }
+}
+
+Widget _generateButton(
+    {context: BuildContext, title: String, routePath: String}) {
+  return RaisedButton(
+    child: Text(title),
+    onPressed: () {
+      Navigator.of(context).pushNamed(routePath);
+    },
+  );
 }
