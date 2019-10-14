@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_do/routes/route.dart';
 import 'package:flutter_do/widget/button.dart';
 import 'package:flutter_do/widget/image.dart';
+import 'package:flutter_do/widget/input.dart';
 import 'package:flutter_do/widget/progress.dart';
-import 'package:flutter_do/routes/route.dart';
 import 'package:flutter_do/widget/switch_checkbox.dart';
 import 'package:flutter_do/widget/text.dart';
 
@@ -23,27 +24,32 @@ class MyApp extends StatelessWidget {
         switch (routeName) {
           case RoutePageAll.route_text:
             {
-              builder = (BuildContext context) => new TextPage();
+              builder = (BuildContext context) => TextPage();
               break;
             }
           case RoutePageAll.route_button:
             {
-              builder = (BuildContext context) => new ButtonPage();
+              builder = (BuildContext context) => ButtonPage();
               break;
             }
           case RoutePageAll.route_image:
             {
-              builder = (BuildContext context) => new ImagePage();
+              builder = (BuildContext context) => ImagePage();
               break;
             }
           case RoutePageAll.route_switchCheckbox:
             {
-              builder = (BuildContext context) => new SwitchCheckboxPage();
+              builder = (BuildContext context) => SwitchCheckboxPage();
               break;
             }
           case RoutePageAll.route_progress:
             {
-              builder = (BuildContext context) => new ProgressPage();
+              builder = (BuildContext context) => ProgressPage();
+              break;
+            }
+          case RoutePageAll.route_input:
+            {
+              builder = (BuildContext context) => InputPage();
               break;
             }
         }
@@ -72,26 +78,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _generateButton(
-                context: context,
-                title: "Text",
-                routePath: RoutePageAll.route_text),
-            _generateButton(
-                context: context,
-                title: "Button",
-                routePath: RoutePageAll.route_button),
-            _generateButton(
-                context: context,
-                title: "Image",
-                routePath: RoutePageAll.route_image),
-            _generateButton(
-                context: context,
-                title: "Switch_Checkbox",
-                routePath: RoutePageAll.route_switchCheckbox),
-            _generateButton(
-                context: context,
-                title: "Progress",
-                routePath: RoutePageAll.route_progress),
+            _generateButton(context, RoutePageAll.route_text),
+            _generateButton(context, RoutePageAll.route_button),
+            _generateButton(context, RoutePageAll.route_image),
+            _generateButton(context, RoutePageAll.route_switchCheckbox),
+            _generateButton(context, RoutePageAll.route_progress),
+            _generateButton(context, RoutePageAll.route_input),
           ],
         ),
       ),
@@ -99,10 +91,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-Widget _generateButton(
-    {context: BuildContext, title: String, routePath: String}) {
+String getRouteTag(String routePath) {
+  List<String> temp = routePath.split("/");
+  return temp[temp.length - 1];
+}
+
+Widget _generateButton(BuildContext context, String routePath, {String title}) {
   return RaisedButton(
-    child: Text(title),
+    child: Text(title ?? getRouteTag(routePath)),
     onPressed: () {
       Navigator.of(context).pushNamed(routePath);
     },

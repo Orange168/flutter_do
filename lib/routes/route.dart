@@ -8,4 +8,6 @@ class RoutePageAll {
   static const route_switchCheckbox = "/widget/switchCheckbox";
 
   static const route_progress = "/widget/progress";
+
+  static const route_input = "/widget/input";
 }
