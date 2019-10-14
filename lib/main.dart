@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_do/button.dart';
+import 'package:flutter_do/image.dart';
 import 'package:flutter_do/route.dart';
 import 'package:flutter_do/text.dart';
 
@@ -26,6 +27,11 @@ class MyApp extends StatelessWidget {
           case RoutePageAll.route_button:
             {
               builder = (BuildContext context) => new ButtonPage();
+              break;
+            }
+          case RoutePageAll.route_image:
+            {
+              builder = (BuildContext context) => new ImagePage();
               break;
             }
         }
@@ -64,6 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("Button"),
               onPressed: () {
                 Navigator.of(context).pushNamed(RoutePageAll.route_button);
+              },
+            ),
+            RaisedButton(
+              child: Text("Image"),
+              onPressed: () {
+                Navigator.of(context).pushNamed(RoutePageAll.route_image);
               },
             )
           ],
