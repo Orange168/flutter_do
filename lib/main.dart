@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_do/button.dart';
-import 'package:flutter_do/image.dart';
-import 'package:flutter_do/progress.dart';
-import 'package:flutter_do/route.dart';
-import 'package:flutter_do/switch_checkbox.dart';
-import 'package:flutter_do/text.dart';
+import 'package:flutter_do/widget/button.dart';
+import 'package:flutter_do/widget/image.dart';
+import 'package:flutter_do/widget/progress.dart';
+import 'package:flutter_do/routes/route.dart';
+import 'package:flutter_do/widget/switch_checkbox.dart';
+import 'package:flutter_do/widget/text.dart';
 
 void main() => runApp(MyApp());
 
