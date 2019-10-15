@@ -1,44 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_do/common/page.dart';
 
-class ImagePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Image Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: _ImageHomePage('Flutter Image Demo'),
-    );
-  }
-}
-
-class _ImageHomePage extends StatelessWidget {
-  final String title;
-
-  _ImageHomePage(this.title);
+class ImagePage extends BaseDemoPage {
+  ImagePage() : super('Flutter Image Demo');
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-            children: <Widget>[
-          _ImageWithTipWidget(
-              widget: Image.network(
-                "https://cn.bing.com/th?id=OIP.ULMiN7DES66fDdI22MVC2AHaJo&pid=Api&rs=1",
-                width: 100,
-                height: 100,
-              ),
-              tip: "网络图片"),
-          getImage(color: null, colorBlendMode: null, tip: "本地资源图片"),
-        ]..addAll(getImageList())),
-      ),
-    );
+  Widget generateChildren() {
+    return Column(
+        children: <Widget>[
+      _ImageWithTipWidget(
+          widget: Image.network(
+            "https://cn.bing.com/th?id=OIP.ULMiN7DES66fDdI22MVC2AHaJo&pid=Api&rs=1",
+            width: 100,
+            height: 100,
+          ),
+          tip: "网络图片"),
+      getImage(color: null, colorBlendMode: null, tip: "本地资源图片"),
+    ]..addAll(getImageList()));
   }
 }
 
