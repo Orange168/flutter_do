@@ -10,4 +10,6 @@ class RoutePageAll {
   static const route_progress = "/widget/progress";
 
   static const route_input = "/widget/input";
+
+  static const route_form = "/widget/form";
 }

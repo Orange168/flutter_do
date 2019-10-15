@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_do/routes/route.dart';
 import 'package:flutter_do/widget/button.dart';
+import 'package:flutter_do/widget/form.dart';
 import 'package:flutter_do/widget/image.dart';
 import 'package:flutter_do/widget/input.dart';
 import 'package:flutter_do/widget/progress.dart';
@@ -57,6 +58,11 @@ class MyApp extends StatelessWidget {
               builder = (BuildContext context) => InputPage();
               break;
             }
+          case RoutePageAll.route_form:
+            {
+              builder = (BuildContext context) => FormPage();
+              break;
+            }
         }
         return MaterialPageRoute(builder: builder, settings: settings);
       },
@@ -89,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _generateButton(context, RoutePageAll.route_switchCheckbox),
             _generateButton(context, RoutePageAll.route_progress),
             _generateButton(context, RoutePageAll.route_input),
+            _generateButton(context, RoutePageAll.route_form),
           ],
         ),
       ),
