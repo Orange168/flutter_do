@@ -16,6 +16,8 @@ import 'package:flutter_do/widget/progress.dart';
 import 'package:flutter_do/widget/switch_checkbox.dart';
 import 'package:flutter_do/widget/text.dart';
 
+import 'layout/padding.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -81,6 +83,11 @@ class MyApp extends StatelessWidget {
               builder = (BuildContext context) => AlignPage();
               break;
             }
+          case RoutePageAll.route_padding:
+            {
+              builder = (BuildContext context) => PaddingPage();
+              break;
+            }
         }
         return MaterialPageRoute(builder: builder, settings: settings);
       },
@@ -117,6 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _generateButton(context, RoutePageAll.route_row_column),
             _generateButton(context, RoutePageAll.route_flex),
             _generateButton(context, RoutePageAll.route_align),
+            _generateButton(context, RoutePageAll.route_padding),
           ],
         ),
       ),

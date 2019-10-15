@@ -18,4 +18,6 @@ class RoutePageAll {
   static const route_flex = "/widget/flex";
 
   static const route_align = "/widget/align";
+
+  static const route_padding = "/widget/padding";
 }
