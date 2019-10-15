@@ -12,4 +12,6 @@ class RoutePageAll {
   static const route_input = "/widget/input";
 
   static const route_form = "/widget/form";
+
+  static const route_row_column = "/widget/rowColumn";
 }
