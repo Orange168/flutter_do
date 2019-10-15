@@ -20,7 +20,7 @@ abstract class BaseDemoPage extends StatelessWidget {
       home: _HomePage(
         title: title,
         children: generateChildren(),
-        padding: padding ?? 20,
+        padding: padding ?? 0,
       ),
     );
   }
