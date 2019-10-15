@@ -14,4 +14,8 @@ class RoutePageAll {
   static const route_form = "/widget/form";
 
   static const route_row_column = "/widget/rowColumn";
+
+  static const route_flex = "/widget/flex";
+
+  static const route_align = "/widget/align";
 }

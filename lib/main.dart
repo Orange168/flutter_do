@@ -4,6 +4,8 @@
  * 描述：
  */
 import 'package:flutter/material.dart';
+import 'package:flutter_do/layout/align.dart';
+import 'package:flutter_do/layout/flex.dart';
 import 'package:flutter_do/layout/row_column.dart';
 import 'package:flutter_do/routes/route.dart';
 import 'package:flutter_do/widget/button.dart';
@@ -69,6 +71,16 @@ class MyApp extends StatelessWidget {
               builder = (BuildContext context) => RowColumnPage();
               break;
             }
+          case RoutePageAll.route_flex:
+            {
+              builder = (BuildContext context) => FlexPage();
+              break;
+            }
+          case RoutePageAll.route_align:
+            {
+              builder = (BuildContext context) => AlignPage();
+              break;
+            }
         }
         return MaterialPageRoute(builder: builder, settings: settings);
       },
@@ -103,6 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
             _generateButton(context, RoutePageAll.route_input),
             _generateButton(context, RoutePageAll.route_form),
             _generateButton(context, RoutePageAll.route_row_column),
+            _generateButton(context, RoutePageAll.route_flex),
+            _generateButton(context, RoutePageAll.route_align),
           ],
         ),
       ),
