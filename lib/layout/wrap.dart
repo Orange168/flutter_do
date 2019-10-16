@@ -13,8 +13,8 @@ class WrapPage extends BaseDemoPage {
   @override
   Widget generateChildren() {
     return Container(
-      color: Colors.pinkAccent,
-      width: null,
+      width: double.infinity,
+      alignment: Alignment.centerLeft,
       child: Column(
         children: <Widget>[
           WrapAlignmentWidget(WrapAlignment.start),
@@ -80,7 +80,11 @@ class WrapAlignmentWidget extends StatelessWidget {
             ),
           ],
         ),
-        Text(wrapAlignment.toString()),
+        Align(
+          widthFactor: 1.2,
+          heightFactor: 1.2,
+          child: Text(wrapAlignment.toString()),
+        ),
       ],
     );
   }
