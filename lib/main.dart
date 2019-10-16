@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/layout/align.dart';
 import 'package:flutter_do/layout/flex.dart';
 import 'package:flutter_do/layout/row_column.dart';
+import 'package:flutter_do/layout/wrap.dart';
 import 'package:flutter_do/routes/route.dart';
 import 'package:flutter_do/widget/button.dart';
 import 'package:flutter_do/widget/form.dart';
@@ -88,6 +89,11 @@ class MyApp extends StatelessWidget {
               builder = (BuildContext context) => PaddingPage();
               break;
             }
+          case RoutePageAll.route_wrap:
+            {
+              builder = (BuildContext context) => WrapPage();
+              break;
+            }
         }
         return MaterialPageRoute(builder: builder, settings: settings);
       },
@@ -125,6 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _generateButton(context, RoutePageAll.route_flex),
             _generateButton(context, RoutePageAll.route_align),
             _generateButton(context, RoutePageAll.route_padding),
+            _generateButton(context, RoutePageAll.route_wrap),
           ],
         ),
       ),
