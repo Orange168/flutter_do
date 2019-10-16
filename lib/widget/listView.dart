@@ -40,12 +40,63 @@ class _ListViewPage extends BaseDemoPage {
 
   @override
   Widget generateChildren(BuildContext context) {
+    return _ListView();
+  }
+}
+
+class _ListView extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _ListViewState();
+  }
+}
+
+class _ListViewState extends State<_ListView> {
+  static const MAX_SIZE = 80;
+
+  static const loadEndTag = "##loadEndTag#";
+
+  var _dataList = <String>[loadEndTag];
+
+  @override
+  Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 100,
+        itemCount: _dataList.length,
         itemExtent: 40.0,
         itemBuilder: (BuildContext context, int index) {
+          if (_dataList[index] == loadEndTag) {
+            if (_dataList.length < MAX_SIZE) {
+              _generateData();
+              return Container(
+                alignment: Alignment.center,
+                child: SizedBox(
+                    width: 28,
+                    height: 28,
+                    child: CircularProgressIndicator(strokeWidth: 2)),
+              );
+            } else {
+              return Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "加载完毕",
+                    style: TextStyle(color: Colors.grey),
+                  ));
+            }
+          }
           return ListTile(title: Text("$index"));
         });
+  }
+
+  void _generateData() {
+    Future.delayed(Duration(seconds: 2)).then((e) {
+      setState(() {
+        List<String> list = List<String>();
+        for (int i = 0; i < 20; i++) {
+          list.add((_dataList.length + i).toString());
+        }
+        _dataList.insertAll(_dataList.length - 1, list);
+      });
+    });
   }
 }
 
