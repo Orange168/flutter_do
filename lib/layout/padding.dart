@@ -51,6 +51,14 @@ class PaddingPage extends BaseDemoPage {
               height: 180.0,
             ),
           ),
+          Padding(
+            padding: EdgeInsets.only(left: 80),
+            child: Container(
+              color: Colors.blue[900],
+              width: 180.0,
+              height: 180.0,
+            ),
+          ),
         ]);
   }
 }

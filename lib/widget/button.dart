@@ -12,11 +12,12 @@ class ButtonPage extends BaseDemoPage {
 
   @override
   Widget generateChildren() {
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
+    return Center(
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
           RaisedButton(
             child: Text("RaisedButton"),
             onPressed: () {},
@@ -62,6 +63,6 @@ class ButtonPage extends BaseDemoPage {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
             onPressed: () {},
           )
-        ]);
+        ]));
   }
 }

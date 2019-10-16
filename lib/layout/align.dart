@@ -13,44 +13,66 @@ class AlignPage extends BaseDemoPage {
 
   @override
   Widget generateChildren() {
-    return Row(
-      children: <Widget>[
-        Column(
-            verticalDirection: VerticalDirection.down,
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              AlignmentWidget(Alignment.topLeft),
-              AlignmentWidget(Alignment.topCenter),
-              AlignmentWidget(Alignment.topRight),
-              AlignmentWidget(Alignment.centerLeft),
-              AlignmentWidget(Alignment.center),
-              AlignmentWidget(Alignment.centerRight),
-              AlignmentWidget(Alignment.bottomLeft),
-              AlignmentWidget(Alignment.bottomCenter),
-              AlignmentWidget(Alignment.bottomRight),
-            ]),
-        SizedBox(
-          width: 20,
-        ),
-        Column(
-            verticalDirection: VerticalDirection.down,
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              AlignmentWidget2(Alignment.topLeft),
-              AlignmentWidget2(Alignment.topCenter),
-              AlignmentWidget2(Alignment.topRight),
-              AlignmentWidget2(Alignment.centerLeft),
-              AlignmentWidget2(Alignment.center),
-              AlignmentWidget2(Alignment.centerRight),
-              AlignmentWidget2(Alignment.bottomLeft),
-              AlignmentWidget2(Alignment.bottomCenter),
-              AlignmentWidget2(Alignment.bottomRight),
-            ])
-      ],
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: <Widget>[
+          Column(
+              verticalDirection: VerticalDirection.down,
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                AlignmentWidget(Alignment.topLeft),
+                AlignmentWidget(Alignment.topCenter),
+                AlignmentWidget(Alignment.topRight),
+                AlignmentWidget(Alignment.centerLeft),
+                AlignmentWidget(Alignment.center),
+                AlignmentWidget(Alignment.centerRight),
+                AlignmentWidget(Alignment.bottomLeft),
+                AlignmentWidget(Alignment.bottomCenter),
+                AlignmentWidget(Alignment.bottomRight),
+              ]),
+          SizedBox(
+            width: 20,
+          ),
+          Column(
+              verticalDirection: VerticalDirection.down,
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                AlignmentWidget2(Alignment.topLeft),
+                AlignmentWidget2(Alignment.topCenter),
+                AlignmentWidget2(Alignment.topRight),
+                AlignmentWidget2(Alignment.centerLeft),
+                AlignmentWidget2(Alignment.center),
+                AlignmentWidget2(Alignment.centerRight),
+                AlignmentWidget2(Alignment.bottomLeft),
+                AlignmentWidget2(Alignment.bottomCenter),
+                AlignmentWidget2(Alignment.bottomRight),
+              ]),
+          SizedBox(
+            width: 20,
+          ),
+          Column(
+              verticalDirection: VerticalDirection.down,
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                AlignmentWidget2(Alignment.topLeft),
+                AlignmentWidget2(Alignment.topCenter),
+                AlignmentWidget2(Alignment.topRight),
+                AlignmentWidget2(Alignment.centerLeft),
+                AlignmentWidget2(Alignment.center),
+                AlignmentWidget2(Alignment.centerRight),
+                AlignmentWidget2(Alignment.bottomLeft),
+                AlignmentWidget2(Alignment.bottomCenter),
+                AlignmentWidget2(Alignment.bottomRight),
+              ])
+        ],
+      ),
     );
   }
 }

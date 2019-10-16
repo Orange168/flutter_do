@@ -63,6 +63,9 @@ class _ImageWithTipWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             widget,
+            SizedBox(
+              height: 10,
+            ),
             Text(
               tip,
               style: TextStyle(color: Colors.black, fontSize: 14),
