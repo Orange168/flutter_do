@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_do/common/page.dart';
 import 'package:flutter_do/layout/align.dart';
 import 'package:flutter_do/layout/flex.dart';
 import 'package:flutter_do/layout/padding.dart';
@@ -17,10 +16,6 @@ import 'package:flutter_do/widget/switch_checkbox.dart';
 import 'package:flutter_do/widget/text.dart';
 
 class RoutePageAll {
-  static Map<String, BaseDemoPage> routeMap = {
-    route_text: TextPage(),
-  };
-
   static const route_text = "/widget/text";
 
   static const route_button = "/widget/button";
@@ -50,7 +45,7 @@ class RoutePageAll {
   static const route_listView = "/widget/listView";
 }
 
-MaterialPageRoute hh(RouteSettings settings) {
+MaterialPageRoute generateRoute(RouteSettings settings) {
   WidgetBuilder builder;
   String routeName = settings.name;
   switch (routeName) {

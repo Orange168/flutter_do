@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
-      onGenerateRoute: hh,
+      onGenerateRoute: generateRoute,
     );
   }
 }
@@ -39,8 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SingleChildScrollView(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Wrap(
+            spacing: 4,
             children: <Widget>[
               _generateButton(context, RoutePageAll.route_text),
               _generateButton(context, RoutePageAll.route_button),
