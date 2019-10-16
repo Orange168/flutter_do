@@ -12,7 +12,9 @@ abstract class BaseDemoPage extends StatelessWidget {
 
   final double padding;
 
-  BaseDemoPage(this.title, {this.padding});
+  final bool includeScrollView;
+
+  BaseDemoPage(this.title, {this.padding, this.includeScrollView = true});
 
   Widget generateChildren(BuildContext context);
 
@@ -27,6 +29,7 @@ abstract class BaseDemoPage extends StatelessWidget {
         title: title,
         children: generateChildren(context),
         padding: padding ?? 0,
+        includeScrollView: includeScrollView,
       ),
     );
   }
@@ -39,7 +42,13 @@ class _HomePage extends StatelessWidget {
 
   final double padding;
 
-  _HomePage({this.title, @required this.children, this.padding});
+  final bool includeScrollView;
+
+  _HomePage(
+      {this.title,
+      @required this.children,
+      @required this.includeScrollView,
+      this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +58,11 @@ class _HomePage extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.all(padding),
-        child: SingleChildScrollView(
-          child: children,
-        ),
+        child: includeScrollView
+            ? SingleChildScrollView(
+                child: children,
+              )
+            : children,
       ),
     );
   }

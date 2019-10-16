@@ -8,15 +8,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class ListViewPage extends BaseDemoPage {
-  ListViewPage() : super('Flutter ListView Demo');
+  ListViewPage() : super('Flutter ListView Demo', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {
-    return Center(
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[]));
+    return ListView.builder(
+        itemCount: 100,
+        itemExtent: 40.0,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(title: Text("$index"));
+        });
   }
 }
