@@ -11,7 +11,7 @@ class SwitchCheckboxPage extends BaseDemoPage {
   SwitchCheckboxPage() : super('Flutter Switch Checkbox Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return _SwitchCheckboxWidget();
   }
 }

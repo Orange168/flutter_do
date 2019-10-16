@@ -12,7 +12,7 @@ class PaddingPage extends BaseDemoPage {
   PaddingPage() : super('Flutter Padding Demo', padding: 0);
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return Column(
         verticalDirection: VerticalDirection.down,
         mainAxisAlignment: MainAxisAlignment.start,

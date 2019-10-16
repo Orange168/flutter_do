@@ -11,7 +11,7 @@ class ProgressPage extends BaseDemoPage {
   ProgressPage() : super('Flutter Progress Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,

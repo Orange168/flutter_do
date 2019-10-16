@@ -11,7 +11,7 @@ class ImagePage extends BaseDemoPage {
   ImagePage() : super('Flutter Image Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return Column(
         children: <Widget>[
       _ImageWithTipWidget(

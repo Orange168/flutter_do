@@ -11,7 +11,7 @@ class RowColumnPage extends BaseDemoPage {
   RowColumnPage() : super('Flutter Row Column Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return Column(
         verticalDirection: VerticalDirection.down,
         mainAxisAlignment: MainAxisAlignment.start,

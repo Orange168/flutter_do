@@ -11,7 +11,7 @@ class FormPage extends BaseDemoPage {
   FormPage() : super('Flutter Input Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return _FormWidget();
   }
 }

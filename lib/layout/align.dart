@@ -12,7 +12,7 @@ class AlignPage extends BaseDemoPage {
   AlignPage() : super('Flutter Align Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(

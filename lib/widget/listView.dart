@@ -11,7 +11,7 @@ class ListViewPage extends BaseDemoPage {
   ListViewPage() : super('Flutter ListView Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return Center(
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

@@ -11,7 +11,7 @@ class GridViewPage extends BaseDemoPage {
   GridViewPage() : super('Flutter GridView Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return Center(
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

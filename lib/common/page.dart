@@ -14,7 +14,7 @@ abstract class BaseDemoPage extends StatelessWidget {
 
   BaseDemoPage(this.title, {this.padding});
 
-  Widget generateChildren();
+  Widget generateChildren(BuildContext context);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ abstract class BaseDemoPage extends StatelessWidget {
       ),
       home: _HomePage(
         title: title,
-        children: generateChildren(),
+        children: generateChildren(context),
         padding: padding ?? 0,
       ),
     );

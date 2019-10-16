@@ -17,7 +17,7 @@ class TextPage extends BaseDemoPage {
   TextPage() : super('Flutter Text Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,

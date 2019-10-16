@@ -11,7 +11,7 @@ class InputPage extends BaseDemoPage {
   InputPage() : super('Flutter Input Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return _InputWidget();
   }
 }

@@ -11,7 +11,7 @@ class WrapPage extends BaseDemoPage {
   WrapPage() : super('Flutter Wrap Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return Container(
       width: double.infinity,
       alignment: Alignment.centerLeft,

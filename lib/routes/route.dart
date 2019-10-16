@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_do/dialog/dialog.dart';
 import 'package:flutter_do/layout/align.dart';
 import 'package:flutter_do/layout/flex.dart';
 import 'package:flutter_do/layout/padding.dart';
@@ -43,6 +44,8 @@ class RoutePageAll {
   static const route_gridView = "/widget/gridView";
 
   static const route_listView = "/widget/listView";
+
+  static const route_dialog = "/widget/dialog";
 }
 
 MaterialPageRoute generateRoute(RouteSettings settings) {
@@ -117,6 +120,11 @@ MaterialPageRoute generateRoute(RouteSettings settings) {
     case RoutePageAll.route_gridView:
       {
         builder = (BuildContext context) => GridViewPage();
+        break;
+      }
+    case RoutePageAll.route_dialog:
+      {
+        builder = (BuildContext context) => DialogPage();
         break;
       }
   }

@@ -11,7 +11,7 @@ class ButtonPage extends BaseDemoPage {
   ButtonPage() : super('Flutter Button Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return Center(
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

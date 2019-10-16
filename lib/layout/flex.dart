@@ -12,7 +12,7 @@ class FlexPage extends BaseDemoPage {
   FlexPage() : super('Flutter Flex Demo');
 
   @override
-  Widget generateChildren() {
+  Widget generateChildren(BuildContext context) {
     return Column(
         verticalDirection: VerticalDirection.down,
         mainAxisAlignment: MainAxisAlignment.start,
