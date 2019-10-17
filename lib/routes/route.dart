@@ -5,6 +5,7 @@ import 'package:flutter_do/layout/align.dart';
 import 'package:flutter_do/layout/flex.dart';
 import 'package:flutter_do/layout/padding.dart';
 import 'package:flutter_do/layout/row_column.dart';
+import 'package:flutter_do/layout/stack.dart';
 import 'package:flutter_do/layout/wrap.dart';
 import 'package:flutter_do/widget/button.dart';
 import 'package:flutter_do/widget/form.dart';
@@ -31,21 +32,23 @@ class RoutePageAll {
 
   static const route_form = "/widget/form";
 
-  static const route_row_column = "/widget/rowColumn";
-
-  static const route_flex_expanded = "/widget/flexExpanded";
-
-  static const route_align = "/widget/align";
-
-  static const route_padding = "/widget/padding";
-
-  static const route_wrap = "/widget/wrap";
-
   static const route_gridView = "/widget/gridView";
 
   static const route_listView = "/widget/listView";
 
   static const route_dialog = "/widget/dialog";
+
+  static const route_row_column = "/layout/rowColumn";
+
+  static const route_flex_expanded = "/layout/flexExpanded";
+
+  static const route_align = "/layout/align";
+
+  static const route_padding = "/layout/padding";
+
+  static const route_wrap = "/layout/wrap";
+
+  static const route_stack = "/layout/stack";
 }
 
 MaterialPageRoute generateRoute(RouteSettings settings) {
@@ -125,6 +128,11 @@ MaterialPageRoute generateRoute(RouteSettings settings) {
     case RoutePageAll.route_dialog:
       {
         builder = (BuildContext context) => DialogPage();
+        break;
+      }
+    case RoutePageAll.route_stack:
+      {
+        builder = (BuildContext context) => StackPage();
         break;
       }
   }
