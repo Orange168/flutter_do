@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
               _generateButton(context, RoutePageAll.route_input),
               _generateButton(context, RoutePageAll.route_form),
               _generateButton(context, RoutePageAll.route_row_column),
-              _generateButton(context, RoutePageAll.route_flex),
+              _generateButton(context, RoutePageAll.route_flex_expanded),
               _generateButton(context, RoutePageAll.route_align),
               _generateButton(context, RoutePageAll.route_padding),
               _generateButton(context, RoutePageAll.route_wrap),

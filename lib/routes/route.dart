@@ -33,7 +33,7 @@ class RoutePageAll {
 
   static const route_row_column = "/widget/rowColumn";
 
-  static const route_flex = "/widget/flex";
+  static const route_flex_expanded = "/widget/flexExpanded";
 
   static const route_align = "/widget/align";
 
@@ -92,9 +92,9 @@ MaterialPageRoute generateRoute(RouteSettings settings) {
         builder = (BuildContext context) => RowColumnPage();
         break;
       }
-    case RoutePageAll.route_flex:
+    case RoutePageAll.route_flex_expanded:
       {
-        builder = (BuildContext context) => FlexPage();
+        builder = (BuildContext context) => FlexExpandedPage();
         break;
       }
     case RoutePageAll.route_align:
