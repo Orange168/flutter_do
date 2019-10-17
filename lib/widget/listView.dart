@@ -8,29 +8,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class ListViewPage extends BaseDemoPage {
-  ListViewPage() : super('Flutter ListView Demo');
+  ListViewPage() : super('Flutter ListView Demo', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        FlatButton(
-          child: Text("SimpleListViewPage"),
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return _SimpleListViewPage();
-            }));
-          },
-        ),
-        FlatButton(
-          child: Text("ListViewPage"),
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return _ListViewPage();
-            }));
-          },
-        ),
-      ],
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          RaisedButton(
+            child: Text("SimpleListViewPage"),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return _SimpleListViewPage();
+              }));
+            },
+          ),
+          RaisedButton(
+            child: Text("ListViewPage"),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return _ListViewPage();
+              }));
+            },
+          ),
+        ],
+      ),
     );
   }
 }
@@ -58,17 +61,22 @@ class _ListViewState extends State<_ListView> {
 
   var _dataList = <String>[loadEndTag];
 
+  Color _color1 = Colors.grey[100];
+
+  Color _color2 = Colors.grey[200];
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: _dataList.length,
-        itemExtent: 40.0,
+//        itemExtent: 40.0,
         itemBuilder: (BuildContext context, int index) {
           if (_dataList[index] == loadEndTag) {
             if (_dataList.length < MAX_SIZE) {
               _generateData();
               return Container(
                 alignment: Alignment.center,
+                padding: EdgeInsets.symmetric(vertical: 10),
                 child: SizedBox(
                     width: 28,
                     height: 28,
@@ -77,13 +85,26 @@ class _ListViewState extends State<_ListView> {
             } else {
               return Container(
                   alignment: Alignment.center,
+                  padding: EdgeInsets.symmetric(vertical: 10),
                   child: Text(
                     "加载完毕",
                     style: TextStyle(color: Colors.grey),
                   ));
             }
           }
-          return ListTile(title: Text("$index"));
+          Color color;
+          if (index % 2 == 0) {
+            color = _color1;
+          } else {
+            color = _color2;
+          }
+          return Container(
+            height: 50,
+            color: color,
+            child: Center(
+              child: Text("$index"),
+            ),
+          );
         });
   }
 
@@ -107,8 +128,6 @@ class _SimpleListViewPage extends BaseDemoPage {
   @override
   Widget generateChildren(BuildContext context) {
     return ListView(
-      shrinkWrap: true,
-      padding: const EdgeInsets.all(20.0),
       children: _generateListView(),
     );
   }
