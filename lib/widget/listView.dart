@@ -65,47 +65,55 @@ class _ListViewState extends State<_ListView> {
 
   Color _color2 = Colors.grey[200];
 
+  Widget _divider1 = Divider(
+    color: Colors.lightBlue,
+    height: 2,
+  );
+
+  Widget _divider2 = Divider(
+    color: Colors.lightGreen,
+    height: 2,
+  );
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: _dataList.length,
+    return ListView.separated(
+      itemCount: _dataList.length,
 //        itemExtent: 40.0,
-        itemBuilder: (BuildContext context, int index) {
-          if (_dataList[index] == loadEndTag) {
-            if (_dataList.length < MAX_SIZE) {
-              _generateData();
-              return Container(
+      separatorBuilder: (BuildContext context, int index) {
+        return index % 2 == 0 ? _divider1 : _divider2;
+      },
+      itemBuilder: (BuildContext context, int index) {
+        if (_dataList[index] == loadEndTag) {
+          if (_dataList.length < MAX_SIZE) {
+            _generateData();
+            return Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: SizedBox(
+                  width: 28,
+                  height: 28,
+                  child: CircularProgressIndicator(strokeWidth: 2)),
+            );
+          } else {
+            return Container(
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(vertical: 10),
-                child: SizedBox(
-                    width: 28,
-                    height: 28,
-                    child: CircularProgressIndicator(strokeWidth: 2)),
-              );
-            } else {
-              return Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  child: Text(
-                    "加载完毕",
-                    style: TextStyle(color: Colors.grey),
-                  ));
-            }
+                child: Text(
+                  "加载完毕",
+                  style: TextStyle(color: Colors.grey),
+                ));
           }
-          Color color;
-          if (index % 2 == 0) {
-            color = _color1;
-          } else {
-            color = _color2;
-          }
-          return Container(
-            height: 50,
-            color: color,
-            child: Center(
-              child: Text("$index"),
-            ),
-          );
-        });
+        }
+        return Container(
+          height: 50,
+          color: index % 2 == 0 ? _color1 : _color2,
+          child: Center(
+            child: Text("$index"),
+          ),
+        );
+      },
+    );
   }
 
   void _generateData() {
