@@ -58,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
               _generateButton(context, RoutePageAll.route_gridView),
               _generateButton(context, RoutePageAll.route_dialog),
               _generateButton(context, RoutePageAll.route_stack),
+              _generateButton(context, RoutePageAll.route_decoratedBox),
             ],
           ),
         ),

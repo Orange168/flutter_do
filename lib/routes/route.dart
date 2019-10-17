@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_do/dialog/dialog.dart';
 import 'package:flutter_do/layout/align.dart';
+import 'package:flutter_do/layout/decoratedBox.dart';
 import 'package:flutter_do/layout/flex.dart';
 import 'package:flutter_do/layout/padding.dart';
 import 'package:flutter_do/layout/row_column.dart';
@@ -49,6 +50,8 @@ class RoutePageAll {
   static const route_wrap = "/layout/wrap";
 
   static const route_stack = "/layout/stack";
+
+  static const route_decoratedBox = "/layout/decoratedBox";
 }
 
 MaterialPageRoute generateRoute(RouteSettings settings) {
@@ -133,6 +136,11 @@ MaterialPageRoute generateRoute(RouteSettings settings) {
     case RoutePageAll.route_stack:
       {
         builder = (BuildContext context) => StackPage();
+        break;
+      }
+    case RoutePageAll.route_decoratedBox:
+      {
+        builder = (BuildContext context) => DecoratedBoxPage();
         break;
       }
   }
