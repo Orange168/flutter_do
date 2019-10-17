@@ -7,6 +7,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+typedef BuildWidget = Widget Function(BuildContext context);
+
 abstract class BaseDemoPage extends StatelessWidget {
   final String title;
 
@@ -27,18 +29,28 @@ abstract class BaseDemoPage extends StatelessWidget {
       ),
       home: _HomePage(
         title: title,
-        children: generateChildren(context),
+        buildWidget: generateChildren,
         padding: padding ?? 0,
         includeScrollView: includeScrollView,
       ),
     );
   }
+
+  void showSnackBar(BuildContext context, String msg,
+      {Duration duration = _snackBarTransitionDuration}) {
+    Scaffold.of(context).showSnackBar(SnackBar(
+      content: Text(msg),
+      duration: duration,
+    ));
+  }
 }
+
+const Duration _snackBarTransitionDuration = Duration(milliseconds: 850);
 
 class _HomePage extends StatelessWidget {
   final String title;
 
-  final Widget children;
+  final BuildWidget buildWidget;
 
   final double padding;
 
@@ -46,7 +58,7 @@ class _HomePage extends StatelessWidget {
 
   _HomePage(
       {this.title,
-      @required this.children,
+      @required this.buildWidget,
       @required this.includeScrollView,
       this.padding});
 
@@ -56,14 +68,36 @@ class _HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title ?? "Flutter Demo"),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(padding),
-        child: includeScrollView
-            ? SingleChildScrollView(
-                child: children,
-              )
-            : children,
+      body: _HomePageWidget(
+        buildWidget: buildWidget,
+        includeScrollView: includeScrollView,
+        padding: padding,
       ),
+    );
+  }
+}
+
+class _HomePageWidget extends StatelessWidget {
+  final BuildWidget buildWidget;
+
+  final double padding;
+
+  final bool includeScrollView;
+
+  _HomePageWidget(
+      {@required this.buildWidget,
+      @required this.includeScrollView,
+      this.padding});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(padding),
+      child: includeScrollView
+          ? SingleChildScrollView(
+              child: buildWidget(context),
+            )
+          : buildWidget(context),
     );
   }
 }
