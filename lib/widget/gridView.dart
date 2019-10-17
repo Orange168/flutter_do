@@ -55,9 +55,55 @@ class _GridView extends StatefulWidget {
 }
 
 class _GridViewState extends State<_GridView> {
+  static const MAX_SIZE = 80;
+
+  var _dataList = <String>[];
+
+  Color _color1 = Colors.grey[100];
+
+  Color _color2 = Colors.grey[200];
+
+  @override
+  void initState() {
+    super.initState();
+    _generateData();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Text("xxxx");
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3, //每行三列
+          childAspectRatio: 1.0 //显示区域宽高相等
+          ),
+      itemCount: _dataList.length,
+      itemBuilder: (BuildContext context, int index) {
+        if (index == _dataList.length - 1) {
+          if (_dataList.length < MAX_SIZE) {
+            _generateData();
+          }
+        }
+        return Container(
+          height: 50,
+          color: index % 2 == 0 ? _color1 : _color2,
+          child: Center(
+            child: Text("$index"),
+          ),
+        );
+      },
+    );
+  }
+
+  void _generateData() {
+    Future.delayed(Duration(milliseconds: 400)).then((e) {
+      setState(() {
+        List<String> list = List<String>();
+        for (int i = 0; i < 20; i++) {
+          list.add((_dataList.length + i).toString());
+        }
+        _dataList.addAll(list);
+      });
+    });
   }
 }
 
@@ -89,6 +135,17 @@ class _SimpleGridViewPage extends BaseDemoPage {
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
             children: _generateWidget(20, Colors.teal),
+          ),
+        ),
+        Flexible(
+          flex: 1,
+          child: GridView.extent(
+            maxCrossAxisExtent: 70,
+            scrollDirection: Axis.horizontal,
+            childAspectRatio: 1.0,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            children: _generateWidget(10, Colors.brown),
           ),
         ),
       ],
