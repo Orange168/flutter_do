@@ -13,108 +13,62 @@ class ImagePage extends BaseDemoPage {
   @override
   Widget generateChildren(BuildContext context) {
     return Column(
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.all(20),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Image.network(
-                  "https://cn.bing.com/th?id=OIP.ULMiN7DES66fDdI22MVC2AHaJo&pid=Api&rs=1",
-                  width: 100,
-                  height: 100,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  "网络图片",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                  ),
-                )
-              ],
-            ),
+        children: <Widget>[
+      _ImageWithTipWidget(
+          Image.network(
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571395288485&di=d475ea9a1c8920f291e1b65d60e46f58&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn%2Fw640h380%2F20171224%2F4873-fypvuqf5294484.jpg",
+            width: 100,
+            height: 100,
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(20),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Image.asset(
-                  "assets/images/avatar.jpg",
-                  width: 100,
-                  height: 100,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  "本地资源图片",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ]..addAll(getImageList()),
-    );
+          "网络图片"),
+      _getImage(color: null, colorBlendMode: null, tip: "本地资源图片"),
+    ]..addAll(_getImageList()));
   }
 }
 
-List<Widget> getImageList() {
+List<Widget> _getImageList() {
   return BlendMode.values.reversed.map((element) {
-    return _ImageWithTipWidget(
-      element,
-      color: Colors.blue,
-    );
+    return _getImage(colorBlendMode: element, tip: element.toString());
   }).toList();
 }
 
+Widget _getImage(
+    {Color color = Colors.cyan, BlendMode colorBlendMode, String tip}) {
+  return _ImageWithTipWidget(
+      Image.asset(
+        "assets/images/avatar.jpg",
+        width: 100,
+        height: 100,
+        color: color,
+        colorBlendMode: colorBlendMode,
+      ),
+      tip);
+}
+
 class _ImageWithTipWidget extends StatelessWidget {
-  final BlendMode colorBlendMode;
+  final String tip;
 
-  final Color color;
+  final Widget widget;
 
-  _ImageWithTipWidget(this.colorBlendMode, {this.color: Colors.lightBlue});
+  _ImageWithTipWidget(this.widget, this.tip);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(10),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Image.asset(
-              "assets/images/avatar.jpg",
-              width: 100,
-              height: 100,
-              color: color,
-              colorBlendMode: colorBlendMode,
-            ),
+            widget,
             SizedBox(
               height: 10,
             ),
             Text(
-              colorBlendMode.toString(),
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 12,
-              ),
+              tip,
+              style: TextStyle(color: Colors.black, fontSize: 12),
             )
           ],
         ),
