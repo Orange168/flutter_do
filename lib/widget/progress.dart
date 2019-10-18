@@ -8,65 +8,66 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class ProgressPage extends BaseDemoPage {
-  ProgressPage() : super('Flutter Progress Demo');
+  ProgressPage() : super('Progress', includeScrollView: true);
 
   @override
   Widget generateChildren(BuildContext context) {
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          Padding(
-            child: LinearProgressIndicator(
-              backgroundColor: Colors.grey[500],
-              valueColor: AlwaysStoppedAnimation(Colors.amber),
-              value: null,
-            ),
-            padding: EdgeInsets.all(30),
+    return Center(
+      child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+        Padding(
+          child: LinearProgressIndicator(
+            backgroundColor: Colors.grey[300],
+            valueColor: AlwaysStoppedAnimation(Colors.lightBlue),
+            value: null,
           ),
-          Padding(
-            child: LinearProgressIndicator(
-              backgroundColor: Colors.deepPurpleAccent[400],
-              valueColor: AlwaysStoppedAnimation(Colors.red),
-              value: 0.3,
-            ),
-            padding: EdgeInsets.all(30),
+          padding: EdgeInsets.all(30),
+        ),
+        Padding(
+          child: LinearProgressIndicator(
+            backgroundColor: Colors.grey[300],
+            valueColor: AlwaysStoppedAnimation(Colors.lightBlue),
+            value: 0.6,
           ),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Padding(
-              child: CircularProgressIndicator(
-                backgroundColor: Colors.red[600],
-                valueColor: AlwaysStoppedAnimation(Colors.blue),
-              ),
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+          padding: EdgeInsets.all(30),
+        ),
+        SizedBox(
+          height: 100,
+          width: 100,
+          child: Padding(
+            child: CircularProgressIndicator(
+              strokeWidth: 4,
+              backgroundColor: Colors.grey[300],
+              valueColor: AlwaysStoppedAnimation(Colors.lightBlue),
             ),
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
           ),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Padding(
-              child: CircularProgressIndicator(
-                backgroundColor: Colors.red[600],
-                valueColor: AlwaysStoppedAnimation(Colors.blue),
-              ),
-              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+        ),
+        SizedBox(
+          height: 100,
+          width: 100,
+          child: Padding(
+            child: CircularProgressIndicator(
+              strokeWidth: 6,
+              backgroundColor: Colors.grey[300],
+              valueColor: AlwaysStoppedAnimation(Colors.lightBlue),
             ),
+            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
           ),
-          SizedBox(
-            height: 200,
-            width: 200,
-            child: Padding(
-              child: CircularProgressIndicator(
-                backgroundColor: Colors.black45,
-                valueColor: AlwaysStoppedAnimation(Colors.blue),
-                value: 0.3,
-              ),
-              padding: EdgeInsets.all(0),
+        ),
+        SizedBox(
+          height: 200,
+          width: 200,
+          child: Padding(
+            child: CircularProgressIndicator(
+              strokeWidth: 10,
+              backgroundColor: Colors.grey[300],
+              valueColor: AlwaysStoppedAnimation(Colors.lightBlue),
+              value: 0.8,
             ),
+            padding: EdgeInsets.all(20),
           ),
-        ]);
+        ),
+      ]),
+    );
   }
 }
