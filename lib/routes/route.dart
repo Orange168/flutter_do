@@ -8,6 +8,7 @@ import 'package:flutter_do/layout/decoratedBox.dart';
 import 'package:flutter_do/layout/flex.dart';
 import 'package:flutter_do/layout/padding.dart';
 import 'package:flutter_do/layout/row_column.dart';
+import 'package:flutter_do/layout/scaffold.dart';
 import 'package:flutter_do/layout/stack.dart';
 import 'package:flutter_do/layout/transform.dart';
 import 'package:flutter_do/layout/wrap.dart';
@@ -61,6 +62,8 @@ class RoutePageAll {
   static const route_constrainedBox = "/layout/constrainedBox";
 
   static const route_container = "/layout/container";
+
+  static const route_scaffold = "/layout/scaffold";
 }
 
 MaterialPageRoute generateRoute(RouteSettings settings) {
@@ -165,6 +168,11 @@ MaterialPageRoute generateRoute(RouteSettings settings) {
     case RoutePageAll.route_container:
       {
         builder = (BuildContext context) => ContainerPage();
+        break;
+      }
+    case RoutePageAll.route_scaffold:
+      {
+        builder = (BuildContext context) => ScaffoldPage();
         break;
       }
   }
