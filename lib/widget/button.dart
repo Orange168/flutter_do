@@ -8,61 +8,94 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class ButtonPage extends BaseDemoPage {
-  ButtonPage() : super('Flutter Button Demo');
+  ButtonPage() : super('Button', includeScrollView: false);
+
+  void _onPressed(BuildContext context) {
+    showSnackBar(context, "Click me");
+  }
 
   @override
   Widget generateChildren(BuildContext context) {
-    return Center(
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-          RaisedButton(
-            child: Text("RaisedButton"),
-            onPressed: () {},
-          ),
-          RaisedButton.icon(
-            label: Text("RaisedButton.Icon"),
-            icon: Icon(Icons.toys),
-            onPressed: () {},
-          ),
-          FlatButton(
-            child: Text("FlatButton"),
-            onPressed: () {},
-          ),
-          FlatButton.icon(
-            label: Text("FlatButton.Icon"),
-            icon: Icon(Icons.toys),
-            onPressed: () {},
-          ),
-          OutlineButton(
-            child: Text("OutlineButton"),
-            borderSide: BorderSide(color: Colors.amberAccent, width: 3),
-            highlightedBorderColor: Colors.green,
-            highlightColor: Colors.cyan[500],
-            splashColor: Colors.deepOrange,
-            highlightElevation: 20,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.toys),
-            color: Colors.green,
-            tooltip: "is IconButton",
-            onPressed: () {},
-          ),
-          RaisedButton(
-            child: Text("Submit"),
-            textColor: Colors.white,
-            color: Colors.blue[700],
-            highlightColor: Colors.blue[900],
-            splashColor: Colors.grey[600],
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-            onPressed: () {},
+    return SizedBox(
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Positioned(
+            child: Center(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                  RaisedButton(
+                    child: Text("Login"),
+                    onPressed: () {
+                      _onPressed(context);
+                    },
+                  ),
+                  RaisedButton.icon(
+                    label: Text("Login"),
+                    icon: Icon(Icons.insert_emoticon),
+                    onPressed: () {
+                      _onPressed(context);
+                    },
+                  ),
+                  FlatButton(
+                    child: Text("Login"),
+                    onPressed: () {
+                      _onPressed(context);
+                    },
+                  ),
+                  FlatButton.icon(
+                    label: Text("Login"),
+                    icon: Icon(Icons.insert_emoticon),
+                    onPressed: () {
+                      _onPressed(context);
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.toys),
+                    color: Colors.green,
+                    tooltip: "is IconButton",
+                    onPressed: () {
+                      _onPressed(context);
+                    },
+                  ),
+                  OutlineButton(
+                    child: Text("Login"),
+                    borderSide: BorderSide(color: Colors.amberAccent, width: 1),
+                    highlightedBorderColor: Colors.green,
+                    highlightColor: Colors.blue[600],
+                    splashColor: Colors.transparent,
+                    highlightElevation: 20,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    onPressed: () {
+                      _onPressed(context);
+                    },
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: RaisedButton(
+                        child: Text("Login"),
+                        textColor: Colors.white,
+                        color: Colors.blue[600],
+                        highlightColor: Colors.blue[700],
+                        splashColor: Colors.grey[400],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        onPressed: () {
+                          _onPressed(context);
+                        },
+                      ),
+                    ),
+                  )
+                ])),
           )
-        ]));
+        ],
+      ),
+    );
   }
 }
