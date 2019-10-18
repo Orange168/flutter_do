@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_do/dialog/dialog.dart';
 import 'package:flutter_do/layout/align.dart';
+import 'package:flutter_do/layout/constrainedBox.dart';
 import 'package:flutter_do/layout/decoratedBox.dart';
 import 'package:flutter_do/layout/flex.dart';
 import 'package:flutter_do/layout/padding.dart';
@@ -55,6 +56,8 @@ class RoutePageAll {
   static const route_decoratedBox = "/layout/decoratedBox";
 
   static const route_transform = "/layout/transform";
+
+  static const route_constrainedBox = "/layout/constrainedBox";
 }
 
 MaterialPageRoute generateRoute(RouteSettings settings) {
@@ -149,6 +152,11 @@ MaterialPageRoute generateRoute(RouteSettings settings) {
     case RoutePageAll.route_transform:
       {
         builder = (BuildContext context) => TransformPage();
+        break;
+      }
+    case RoutePageAll.route_constrainedBox:
+      {
+        builder = (BuildContext context) => ConstrainedBoxPage();
         break;
       }
   }
