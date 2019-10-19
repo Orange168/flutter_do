@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class FormPage extends BaseDemoPage {
-  FormPage() : super('Input');
+  FormPage() : super('Form');
 
   @override
   Widget generateChildren(BuildContext context) {
