@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class AlignPage extends BaseDemoPage {
-  AlignPage() : super('Flutter Align Demo');
+  AlignPage() : super('Align');
 
   @override
   Widget generateChildren(BuildContext context) {

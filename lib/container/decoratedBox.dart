@@ -9,7 +9,7 @@ import 'package:flutter_do/common/page.dart';
 
 class DecoratedBoxPage extends BaseDemoPage {
   DecoratedBoxPage()
-      : super('Flutter DecoratedBox Demo', includeScrollView: false);
+      : super('DecoratedBox', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {

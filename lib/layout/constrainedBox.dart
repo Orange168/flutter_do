@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class ConstrainedBoxPage extends BaseDemoPage {
-  ConstrainedBoxPage() : super('Flutter ConstrainedBox Demo');
+  ConstrainedBoxPage() : super('ConstrainedBox');
 
   @override
   Widget generateChildren(BuildContext context) {

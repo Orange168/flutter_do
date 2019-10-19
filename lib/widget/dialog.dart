@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class DialogPage extends BaseDemoPage {
-  DialogPage() : super('Flutter Dialog Demo');
+  DialogPage() : super('Dialog');
 
   @override
   Widget generateChildren(BuildContext context) {

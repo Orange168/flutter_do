@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class ContainerPage extends BaseDemoPage {
-  ContainerPage() : super('Flutter Container Demo', includeScrollView: false);
+  ContainerPage() : super('Container', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {

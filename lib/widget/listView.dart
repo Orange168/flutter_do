@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class ListViewPage extends BaseDemoPage {
-  ListViewPage() : super('Flutter ListView Demo', includeScrollView: false);
+  ListViewPage() : super('ListView', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {
@@ -39,7 +39,7 @@ class ListViewPage extends BaseDemoPage {
 }
 
 class _ListViewPage extends BaseDemoPage {
-  _ListViewPage() : super('Flutter ListView Demo', includeScrollView: false);
+  _ListViewPage() : super('ListView', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {
@@ -131,7 +131,7 @@ class _ListViewState extends State<_ListView> {
 
 class _SimpleListViewPage extends BaseDemoPage {
   _SimpleListViewPage()
-      : super('Flutter Simple ListView Demo', includeScrollView: false);
+      : super('Simple ListView', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {

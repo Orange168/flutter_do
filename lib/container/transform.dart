@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class TransformPage extends BaseDemoPage {
-  TransformPage() : super('Flutter Transform Demo');
+  TransformPage() : super('Transform');
 
   @override
   Widget generateChildren(BuildContext context) {

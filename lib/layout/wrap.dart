@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class WrapPage extends BaseDemoPage {
-  WrapPage() : super('Flutter Wrap Demo');
+  WrapPage() : super('Wrap');
 
   @override
   Widget generateChildren(BuildContext context) {

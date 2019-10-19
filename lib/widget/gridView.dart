@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class GridViewPage extends BaseDemoPage {
-  GridViewPage() : super('Flutter GridView Demo', includeScrollView: false);
+  GridViewPage() : super('GridView', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {

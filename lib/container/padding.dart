@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class PaddingPage extends BaseDemoPage {
-  PaddingPage() : super('Flutter Padding Demo');
+  PaddingPage() : super('Padding');
 
   @override
   Widget generateChildren(BuildContext context) {
