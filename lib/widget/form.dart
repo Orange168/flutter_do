@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class FormPage extends BaseDemoPage {
-  FormPage() : super('Flutter Input Demo');
+  FormPage() : super('Input');
 
   @override
   Widget generateChildren(BuildContext context) {
@@ -58,73 +58,96 @@ class _FormWidgetState extends State<_FormWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      autovalidate: true,
-      child: Column(
-        children: <Widget>[
-          TextFormField(
-            autofocus: true,
-            focusNode: _accountFocusNode,
-            keyboardType: TextInputType.number,
-            textInputAction: TextInputAction.next,
-            maxLength: 11,
-            maxLines: 1,
-            decoration: InputDecoration(
-                labelText: "账号",
-                labelStyle: _labelStyle,
-                hintText: "请输入手机号码",
-                hintStyle: _hintStyle,
-                prefixIcon: Icon(Icons.perm_phone_msg)),
-            controller: _accountController,
-            validator: (value) {
-              return value.trim().length > 0 ? null : "手机号码不能为空";
-            },
-          ),
-          TextFormField(
-            autofocus: true,
-            focusNode: _pwdFocusNode,
-            obscureText: true,
-            keyboardType: TextInputType.visiblePassword,
-            textInputAction: TextInputAction.go,
-            maxLength: 11,
-            maxLines: 1,
-            showCursor: true,
-            cursorColor: Colors.deepOrange,
-            decoration: InputDecoration(
-                labelText: "验证码",
-                labelStyle: _labelStyle,
-                hintText: "请输入验证码",
-                hintStyle: _hintStyle,
-                prefixIcon: Icon(Icons.notifications_paused)),
-            onChanged: (value) {
-              setState(() {
-                pwd = value;
-              });
-            },
-            validator: (value) {
-              return value.trim().length > 0 ? null : "密码不能为空";
-            },
-          ),
-          Text("验证码：$pwd"),
-          Text("$focusHint"),
-          RaisedButton(
-            child: Text("移动焦点"),
-            onPressed: () {
-              if (_accountFocusNode.hasFocus) {
-                _pwdFocusNode.requestFocus();
-              } else {
-                _accountFocusNode.requestFocus();
-              }
-            },
-          ),
-          RaisedButton(
-            child: Text("隐藏键盘"),
-            onPressed: () {
-              _accountFocusNode.unfocus();
-              _pwdFocusNode.unfocus();
-            },
-          )
-        ],
+    return Padding(
+      padding: EdgeInsets.all(20),
+      child: Form(
+        autovalidate: true,
+        child: Column(
+          children: <Widget>[
+            TextFormField(
+              autofocus: true,
+              focusNode: _accountFocusNode,
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.next,
+              maxLength: 11,
+              maxLines: 1,
+              decoration: InputDecoration(
+                  labelText: "账号",
+                  labelStyle: _labelStyle,
+                  hintText: "请输入手机号码",
+                  hintStyle: _hintStyle,
+                  prefixIcon: Icon(Icons.perm_phone_msg)),
+              controller: _accountController,
+              validator: (value) {
+                return value.trim().length > 0 ? null : "手机号码不能为空";
+              },
+            ),
+            TextFormField(
+              autofocus: true,
+              focusNode: _pwdFocusNode,
+              obscureText: true,
+              keyboardType: TextInputType.visiblePassword,
+              textInputAction: TextInputAction.go,
+              maxLength: 11,
+              maxLines: 1,
+              showCursor: true,
+              cursorColor: Colors.deepOrange,
+              decoration: InputDecoration(
+                  labelText: "验证码",
+                  labelStyle: _labelStyle,
+                  hintText: "请输入验证码",
+                  hintStyle: _hintStyle,
+                  prefixIcon: Icon(Icons.notifications_paused)),
+              onChanged: (value) {
+                setState(() {
+                  pwd = value;
+                });
+              },
+              validator: (value) {
+                return value.trim().length > 0 ? null : "密码不能为空";
+              },
+            ),
+            SizedBox(
+                width: double.infinity,
+                child: Builder(builder: (context) {
+                  return RaisedButton(
+                    child: Text("登录"),
+                    textColor: Colors.white,
+                    color: Colors.blue[600],
+                    highlightColor: Colors.blue[700],
+                    splashColor: Colors.grey[400],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    onPressed: () {
+                      if (Form.of(context).validate()) {
+                        print("数据格式合法");
+                      } else {
+                        print("数据格式不合法");
+                      }
+                    },
+                  );
+                })),
+            Text("验证码：$pwd"),
+            Text("$focusHint"),
+            RaisedButton(
+              child: Text("移动焦点"),
+              onPressed: () {
+                if (_accountFocusNode.hasFocus) {
+                  _pwdFocusNode.requestFocus();
+                } else {
+                  _accountFocusNode.requestFocus();
+                }
+              },
+            ),
+            RaisedButton(
+              child: Text("隐藏键盘"),
+              onPressed: () {
+                _accountFocusNode.unfocus();
+                _pwdFocusNode.unfocus();
+              },
+            )
+          ],
+        ),
       ),
     );
   }
