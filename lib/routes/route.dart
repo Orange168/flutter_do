@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_do/container/clip.dart';
 import 'package:flutter_do/container/container.dart';
 import 'package:flutter_do/container/decoratedBox.dart';
 import 'package:flutter_do/container/padding.dart';
@@ -64,6 +65,8 @@ class RoutePageAll {
   static const route_scaffold = "/container/Scaffold";
 
   static const route_transform = "/container/Transform";
+
+  static const route_clip = "/container/Clip";
 }
 
 MaterialPageRoute generateRoute(RouteSettings settings) {
@@ -173,6 +176,11 @@ MaterialPageRoute generateRoute(RouteSettings settings) {
     case RoutePageAll.route_scaffold:
       {
         builder = (BuildContext context) => ScaffoldPage();
+        break;
+      }
+    case RoutePageAll.route_clip:
+      {
+        builder = (BuildContext context) => ClipPage();
         break;
       }
   }
