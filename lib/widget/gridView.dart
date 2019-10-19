@@ -55,7 +55,7 @@ class _GridView extends StatefulWidget {
 }
 
 class _GridViewState extends State<_GridView> {
-  static const MAX_SIZE = 80;
+  static const MAX_SIZE = 90;
 
   var _dataList = <String>[];
 
@@ -73,9 +73,9 @@ class _GridViewState extends State<_GridView> {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3, //每行三列
-          childAspectRatio: 1.0 //显示区域宽高相等
-          ),
+        crossAxisCount: 3,
+        childAspectRatio: 1.0,
+      ),
       itemCount: _dataList.length,
       itemBuilder: (BuildContext context, int index) {
         if (index == _dataList.length - 1) {

@@ -37,15 +37,13 @@ abstract class BaseDemoPage extends StatelessWidget {
   }
 
   void showSnackBar(BuildContext context, String msg,
-      {Duration duration = _snackBarTransitionDuration}) {
+      {Duration duration = const Duration(milliseconds: 850)}) {
     Scaffold.of(context).showSnackBar(SnackBar(
       content: Text(msg),
       duration: duration,
     ));
   }
 }
-
-const Duration _snackBarTransitionDuration = Duration(milliseconds: 850);
 
 class _HomePage extends StatelessWidget {
   final String title;
@@ -66,7 +64,7 @@ class _HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title ?? "Flutter Demo"),
+        title: Text(title ?? "Flutter Do"),
       ),
       body: _HomePageWidget(
         buildWidget: buildWidget,
@@ -95,9 +93,17 @@ class _HomePageWidget extends StatelessWidget {
       padding: EdgeInsets.all(padding),
       child: includeScrollView
           ? SingleChildScrollView(
-              child: buildWidget(context),
+              child: Builder(
+                builder: (context) {
+                  return buildWidget(context);
+                },
+              ),
             )
-          : buildWidget(context),
+          : Builder(
+              builder: (context) {
+                return buildWidget(context);
+              },
+            ),
     );
   }
 }

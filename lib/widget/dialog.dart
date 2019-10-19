@@ -22,42 +22,42 @@ class DialogPage extends BaseDemoPage {
             child: Text("默认对话框样式"),
             onPressed: () async {
               var result = await _showAlertDialog(context);
-              print("result: $result");
+              showSnackBar(context, result?.toString());
             },
           ),
           RaisedButton(
             child: Text("自定义对话框样式"),
             onPressed: () async {
               var result = await _showCustomAlertDialog(context);
-              print("result: $result");
+              showSnackBar(context, result?.toString());
             },
           ),
           RaisedButton(
             child: Text("显示列表对话框"),
             onPressed: () async {
               var result = await _showSimpleDialog(context);
-              print("result: $result");
+              showSnackBar(context, result?.toString());
             },
           ),
           RaisedButton(
             child: Text("显示Android时间对话框样式"),
             onPressed: () async {
               var result = await _showDatePickerDialogAndroid(context);
-              print("result: $result");
+              showSnackBar(context, result?.toString());
             },
           ),
           RaisedButton(
             child: Text("显示ios时间对话框样式"),
             onPressed: () async {
               var result = await _showDatePickerDialogIos(context);
-              print("result: $result");
+              showSnackBar(context, result?.toString());
             },
           ),
           RaisedButton(
             child: Text("显示从底部弹出的对话框"),
             onPressed: () async {
               var result = await _showModalBottomSheet(context);
-              print("result: $result");
+              showSnackBar(context, result?.toString());
             },
           ),
         ]));
