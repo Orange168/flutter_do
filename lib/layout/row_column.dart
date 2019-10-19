@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
 class RowColumnPage extends BaseDemoPage {
-  RowColumnPage() : super('Flutter Row Column Demo');
+  RowColumnPage() : super('Row Column');
 
   @override
   Widget generateChildren(BuildContext context) {
