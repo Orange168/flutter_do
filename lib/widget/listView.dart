@@ -77,7 +77,8 @@ class _ListViewState extends State<_ListView> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
+    return Scrollbar(
+        child: ListView.separated(
       itemCount: _dataList.length,
 //        itemExtent: 40.0,
       separatorBuilder: (BuildContext context, int index) {
@@ -113,7 +114,7 @@ class _ListViewState extends State<_ListView> {
           ),
         );
       },
-    );
+    ));
   }
 
   void _generateData() {
@@ -130,13 +131,14 @@ class _ListViewState extends State<_ListView> {
 }
 
 class _SimpleListViewPage extends BaseDemoPage {
-  _SimpleListViewPage()
-      : super('Simple ListView', includeScrollView: false);
+  _SimpleListViewPage() : super('Simple ListView', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {
-    return ListView(
-      children: _generateListView(),
+    return Scrollbar(
+      child: ListView(
+        children: _generateListView(),
+      ),
     );
   }
 
