@@ -19,45 +19,185 @@ class PaddingPage extends BaseDemoPage {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(0),
-            child: Container(
-              color: Colors.blue[300],
-              width: 180.0,
-              height: 180.0,
+          Container(
+            width: 200,
+            height: 200,
+            color: Colors.blue[600],
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Container(
+                  color: Colors.red[400],
+                  width: 150,
+                  height: 150,
+                ),
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Padding(
+                    padding: EdgeInsets.all(0),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.brown[400],
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-            child: Container(
-              color: Colors.blue[400],
-              width: 180.0,
-              height: 180.0,
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: 200,
+            height: 200,
+            color: Colors.blue[600],
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Container(
+                  color: Colors.red[400],
+                  width: 150,
+                  height: 150,
+                ),
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.brown[400],
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(left: 40),
-            child: Container(
-              color: Colors.blue[600],
-              width: 180.0,
-              height: 180.0,
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: 200,
+            height: 200,
+            color: Colors.blue[600],
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Container(
+                  color: Colors.red[400],
+                  width: 150,
+                  height: 150,
+                ),
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.brown[400],
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 60, vertical: 20),
-            child: Container(
-              color: Colors.blue[800],
-              width: 180.0,
-              height: 180.0,
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: 200,
+            height: 200,
+            color: Colors.blue[600],
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Container(
+                  color: Colors.red[400],
+                  width: 150,
+                  height: 150,
+                ),
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.brown[400],
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(left: 80),
-            child: Container(
-              color: Colors.blue[900],
-              width: 180.0,
-              height: 180.0,
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: 200,
+            height: 200,
+            color: Colors.blue[600],
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Container(
+                  color: Colors.red[400],
+                  width: 150,
+                  height: 150,
+                ),
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.brown[400],
+                    ),
+                  ),
+                )
+              ],
             ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: 200,
+            height: 200,
+            color: Colors.blue[600],
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Container(
+                  color: Colors.red[400],
+                  width: 150,
+                  height: 150,
+                ),
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.brown[400],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10,
           ),
         ]);
   }

@@ -99,9 +99,10 @@ class AlignmentWidget extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 10.0),
-        Text(alignment.toString()),
-        SizedBox(height: 10.0),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 10),
+          child: Text(alignment.toString()),
+        )
       ],
     );
   }
