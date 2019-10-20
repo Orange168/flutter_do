@@ -84,7 +84,7 @@ class RoutePageAll {
 
   static const route_gradientButton = "/customWidget/GradientButton";
 
-  static const route_customPaint = "/customWidget/CustomPaintPage";
+  static const route_customPaint = "/customWidget/CustomPaint";
 }
 
 MaterialPageRoute generateRoute(RouteSettings settings) {
