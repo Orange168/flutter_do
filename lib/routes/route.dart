@@ -6,6 +6,7 @@ import 'package:flutter_do/container/decoratedBox.dart';
 import 'package:flutter_do/container/padding.dart';
 import 'package:flutter_do/container/scaffold.dart';
 import 'package:flutter_do/container/transform.dart';
+import 'package:flutter_do/customWidget/GradientButton.dart';
 import 'package:flutter_do/fun/gestureDetector.dart';
 import 'package:flutter_do/fun/inheritedWidget.dart';
 import 'package:flutter_do/fun/listener.dart';
@@ -79,6 +80,8 @@ class RoutePageAll {
   static const route_listener = "/fun/Listener";
 
   static const route_gestureDetector = "/fun/GestureDetector";
+
+  static const route_gradientButton = "/customWidget/GradientButton";
 }
 
 MaterialPageRoute generateRoute(RouteSettings settings) {
@@ -212,6 +215,11 @@ MaterialPageRoute generateRoute(RouteSettings settings) {
     case RoutePageAll.route_gestureDetector:
       {
         builder = (BuildContext context) => GestureDetectorPage();
+        break;
+      }
+    case RoutePageAll.route_gradientButton:
+      {
+        builder = (BuildContext context) => GradientButtonPage();
         break;
       }
   }

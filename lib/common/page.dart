@@ -23,12 +23,12 @@ abstract class BaseDemoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: title,
+      title: title ?? "Flutter Do",
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: _HomePage(
-        title: title,
+        title: title ?? "Flutter Do",
         buildWidget: generateChildren,
         padding: padding ?? 0,
         includeScrollView: includeScrollView,
@@ -64,7 +64,7 @@ class _HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title ?? "Flutter Do"),
+        title: Text(title),
       ),
       body: _HomePageWidget(
         buildWidget: buildWidget,
