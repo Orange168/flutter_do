@@ -6,6 +6,7 @@ import 'package:flutter_do/container/decoratedBox.dart';
 import 'package:flutter_do/container/padding.dart';
 import 'package:flutter_do/container/scaffold.dart';
 import 'package:flutter_do/container/transform.dart';
+import 'package:flutter_do/fun/inheritedWidget.dart';
 import 'package:flutter_do/fun/willPopScope.dart';
 import 'package:flutter_do/layout/align.dart';
 import 'package:flutter_do/layout/constrainedBox.dart';
@@ -70,6 +71,8 @@ class RoutePageAll {
   static const route_clip = "/container/Clip";
 
   static const route_willPopScope = "/fun/WillPopScope";
+
+  static const route_inheritedWidget = "/fun/InheritedWidget";
 }
 
 MaterialPageRoute generateRoute(RouteSettings settings) {
@@ -188,6 +191,11 @@ MaterialPageRoute generateRoute(RouteSettings settings) {
     case RoutePageAll.route_willPopScope:
       {
         builder = (BuildContext context) => WillPopScopePage();
+        break;
+      }
+    case RoutePageAll.route_inheritedWidget:
+      {
+        builder = (BuildContext context) => InheritedWidgetPage();
         break;
       }
   }
