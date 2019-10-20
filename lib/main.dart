@@ -66,6 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
               _generateButton(context, RoutePageAll.route_clip),
               _generateButton(context, RoutePageAll.route_willPopScope),
               _generateButton(context, RoutePageAll.route_inheritedWidget),
+              _generateButton(context, RoutePageAll.route_listener),
             ],
           ),
         ),
