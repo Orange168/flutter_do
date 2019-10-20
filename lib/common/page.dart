@@ -27,11 +27,17 @@ abstract class BaseDemoPage extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: _HomePage(
-        title: title,
-        buildWidget: generateChildren,
-        padding: padding ?? 0,
-        includeScrollView: includeScrollView,
+//      home: _HomePage(
+//        title: title,
+//        buildWidget: generateChildren,
+//        padding: padding ?? 0,
+//        includeScrollView: includeScrollView,
+//      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(title ?? "Flutter Do"),
+        ),
+        body: generateChildren(context),
       ),
     );
   }
@@ -66,11 +72,12 @@ class _HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title ?? "Flutter Do"),
       ),
-      body: _HomePageWidget(
-        buildWidget: buildWidget,
-        includeScrollView: includeScrollView,
-        padding: padding,
-      ),
+//      body: _HomePageWidget(
+//        buildWidget: buildWidget,
+//        includeScrollView: includeScrollView,
+//        padding: padding,
+//      ),
+      body: buildWidget(context),
     );
   }
 }
