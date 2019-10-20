@@ -69,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               _generateButton(context, RoutePageAll.route_listener),
               _generateButton(context, RoutePageAll.route_gestureDetector),
               _generateButton(context, RoutePageAll.route_gradientButton),
+              _generateButton(context, RoutePageAll.route_customPaint),
             ],
           ),
         ),
