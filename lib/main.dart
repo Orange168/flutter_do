@@ -17,9 +17,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Do'),
-      onGenerateRoute: generateRoute,
+      onGenerateRoute: _generateRoute,
     );
   }
+}
+
+MaterialPageRoute _generateRoute(RouteSettings settings) {
+  return MaterialPageRoute(
+      builder: (BuildContext context) => pathToWidgetMap[settings.name],
+      settings: settings);
 }
 
 class MyHomePage extends StatefulWidget {
@@ -33,6 +39,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    List<Widget> widgetList = [];
+    pathToWidgetMap.keys.forEach((element) {
+      widgetList.add(_generateButton(context, element));
+    });
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -41,36 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Center(
           child: Wrap(
             spacing: 4,
-            children: <Widget>[
-              _generateButton(context, RoutePageAll.route_text),
-              _generateButton(context, RoutePageAll.route_button),
-              _generateButton(context, RoutePageAll.route_image),
-              _generateButton(context, RoutePageAll.route_switchCheckbox),
-              _generateButton(context, RoutePageAll.route_progress),
-              _generateButton(context, RoutePageAll.route_input),
-              _generateButton(context, RoutePageAll.route_form),
-              _generateButton(context, RoutePageAll.route_row_column),
-              _generateButton(context, RoutePageAll.route_flex_expanded),
-              _generateButton(context, RoutePageAll.route_align),
-              _generateButton(context, RoutePageAll.route_padding),
-              _generateButton(context, RoutePageAll.route_wrap),
-              _generateButton(context, RoutePageAll.route_listView),
-              _generateButton(context, RoutePageAll.route_gridView),
-              _generateButton(context, RoutePageAll.route_dialog),
-              _generateButton(context, RoutePageAll.route_stack),
-              _generateButton(context, RoutePageAll.route_decoratedBox),
-              _generateButton(context, RoutePageAll.route_transform),
-              _generateButton(context, RoutePageAll.route_constrainedBox),
-              _generateButton(context, RoutePageAll.route_container),
-              _generateButton(context, RoutePageAll.route_scaffold),
-              _generateButton(context, RoutePageAll.route_clip),
-              _generateButton(context, RoutePageAll.route_willPopScope),
-              _generateButton(context, RoutePageAll.route_inheritedWidget),
-              _generateButton(context, RoutePageAll.route_listener),
-              _generateButton(context, RoutePageAll.route_gestureDetector),
-              _generateButton(context, RoutePageAll.route_gradientButton),
-              _generateButton(context, RoutePageAll.route_customPaint),
-            ],
+            children: widgetList,
           ),
         ),
       ),
