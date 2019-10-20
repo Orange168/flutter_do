@@ -6,6 +6,7 @@ import 'package:flutter_do/container/decoratedBox.dart';
 import 'package:flutter_do/container/padding.dart';
 import 'package:flutter_do/container/scaffold.dart';
 import 'package:flutter_do/container/transform.dart';
+import 'package:flutter_do/fun/gestureDetector.dart';
 import 'package:flutter_do/fun/inheritedWidget.dart';
 import 'package:flutter_do/fun/listener.dart';
 import 'package:flutter_do/fun/willPopScope.dart';
@@ -75,7 +76,9 @@ class RoutePageAll {
 
   static const route_inheritedWidget = "/fun/InheritedWidget";
 
-  static const route_listener = "/fun/listener";
+  static const route_listener = "/fun/Listener";
+
+  static const route_gestureDetector = "/fun/GestureDetector";
 }
 
 MaterialPageRoute generateRoute(RouteSettings settings) {
@@ -204,6 +207,11 @@ MaterialPageRoute generateRoute(RouteSettings settings) {
     case RoutePageAll.route_listener:
       {
         builder = (BuildContext context) => ListenerPage();
+        break;
+      }
+    case RoutePageAll.route_gestureDetector:
+      {
+        builder = (BuildContext context) => GestureDetectorPage();
         break;
       }
   }
