@@ -8,6 +8,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'WidgetHomePage.dart';
+import 'routes/route.dart';
+
 const title = "Flutter Do";
 
 class MainApp extends StatelessWidget {
@@ -19,8 +22,19 @@ class MainApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MainPage(),
+      onGenerateRoute: _generateRoute,
     );
   }
+}
+
+MaterialPageRoute _generateRoute(RouteSettings settings) {
+  return MaterialPageRoute(
+      builder: (BuildContext context) {
+        return pathToWidgetMap.firstWhere((element) {
+          return element.containsKey(settings.name);
+        })[settings.name];
+      },
+      settings: settings);
 }
 
 class MainPage extends StatefulWidget {
@@ -56,13 +70,10 @@ class _MainPageState extends State<MainPage>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: _tabs.map((e) {
+        children: _tabs.map((tab) {
           return Container(
             alignment: Alignment.center,
-            child: Text(
-              e,
-              textScaleFactor: 3,
-            ),
+            child: WidgetHomePage(),
           );
         }).toList(),
       ),
@@ -70,21 +81,13 @@ class _MainPageState extends State<MainPage>
   }
 }
 
-class CategoryBean{
+class CategoryBean {}
 
-}
+class WidgetBean {}
 
-class WidgetBean{
-
-
-
-}
-
-class CategoryHeaderWidget extends StatelessWidget{
-
+class CategoryHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return null;
   }
-
 }

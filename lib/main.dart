@@ -6,7 +6,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_do/routes/route.dart';
 
-void main() => runApp(MyApp());
+import 'mainTest.dart';
+
+void main() => runApp(MainApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -24,7 +26,11 @@ class MyApp extends StatelessWidget {
 
 MaterialPageRoute _generateRoute(RouteSettings settings) {
   return MaterialPageRoute(
-      builder: (BuildContext context) => pathToWidgetMap[settings.name],
+      builder: (BuildContext context) {
+        return pathToWidgetMap.firstWhere((element) {
+          return element.containsKey(settings.name);
+        })[settings.name];
+      },
       settings: settings);
 }
 
@@ -40,8 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     List<Widget> widgetList = [];
-    pathToWidgetMap.keys.forEach((element) {
-      widgetList.add(_generateButton(context, element));
+    pathToWidgetMap.forEach((element) {
+      element.keys.forEach((element) {
+        widgetList.add(_generateButton(context, element));
+      });
     });
     return Scaffold(
       appBar: AppBar(
