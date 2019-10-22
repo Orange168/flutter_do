@@ -29,7 +29,7 @@ class TextPage extends BaseDemoPage {
             textScaleFactor: 1,
             style: TextStyle(
               fontSize: 18,
-              color: Colors.deepOrange[400],
+              color: Colors.black87,
             ),
           ),
         ),
@@ -43,7 +43,7 @@ class TextPage extends BaseDemoPage {
                 decoration: TextDecoration.underline,
                 decorationStyle: TextDecorationStyle.dashed,
                 fontSize: 18,
-                color: Colors.brown[400]),
+                color: Colors.grey),
           ),
         ),
         Padding(
@@ -56,7 +56,7 @@ class TextPage extends BaseDemoPage {
             textScaleFactor: 1.2,
             style: TextStyle(
                 fontSize: 18,
-                color: Colors.blue[400],
+                color: Colors.black87,
                 shadows: [Shadow(offset: Offset(2, 2), blurRadius: 2.0)]),
           ),
         ),
@@ -68,7 +68,7 @@ class TextPage extends BaseDemoPage {
             textScaleFactor: 1.4,
             style: TextStyle(
               fontSize: 18,
-              color: Colors.green[400],
+              color: Colors.black87,
               fontFamily: 'Light',
             ),
           ),

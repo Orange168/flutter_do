@@ -28,26 +28,26 @@ class ButtonPage extends BaseDemoPage {
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                   RaisedButton(
-                    child: Text("Login"),
+                    child: Text("Click me"),
                     onPressed: () {
                       _onPressed(context);
                     },
                   ),
                   RaisedButton.icon(
-                    label: Text("Login"),
+                    label: Text("Click me"),
                     icon: Icon(Icons.insert_emoticon),
                     onPressed: () {
                       _onPressed(context);
                     },
                   ),
                   FlatButton(
-                    child: Text("Login"),
+                    child: Text("Click me"),
                     onPressed: () {
                       _onPressed(context);
                     },
                   ),
                   FlatButton.icon(
-                    label: Text("Login"),
+                    label: Text("Click me"),
                     icon: Icon(Icons.insert_emoticon),
                     onPressed: () {
                       _onPressed(context);
@@ -62,7 +62,7 @@ class ButtonPage extends BaseDemoPage {
                     },
                   ),
                   OutlineButton(
-                    child: Text("Login"),
+                    child: Text("Click me"),
                     borderSide: BorderSide(color: Colors.amberAccent, width: 1),
                     highlightedBorderColor: Colors.green,
                     highlightColor: Colors.blue[600],
@@ -79,11 +79,11 @@ class ButtonPage extends BaseDemoPage {
                     child: Padding(
                       padding: EdgeInsets.all(20),
                       child: RaisedButton(
-                        child: Text("Login"),
+                        child: Text("Click me"),
                         textColor: Colors.white,
                         color: Colors.blue[600],
                         highlightColor: Colors.blue[700],
-                        splashColor: Colors.grey[400],
+                        splashColor: Colors.transparent,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)),
                         onPressed: () {

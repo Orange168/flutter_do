@@ -87,7 +87,7 @@ final Map<String, IconData> icons = {
   "/container/DecoratedBox": Icons.markunread_mailbox,
   "/container/Transform": Icons.directions_transit,
   "/fun/WillPopScope": Icons.arrow_back,
-  "/fun/InheritedWidget": Icons.share,
+  "/fun/InheritedWidget": Icons.data_usage,
   "/fun/Listener": Icons.screen_share,
   "/fun/GestureDetector": Icons.gesture,
   "/customWidget/GradientButton": Icons.gradient,

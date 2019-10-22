@@ -39,7 +39,7 @@ class GridViewPage extends BaseDemoPage {
 }
 
 class _GridViewPage extends BaseDemoPage {
-  _GridViewPage() : super('Flutter GridView Demo', includeScrollView: false);
+  _GridViewPage() : super('GridView', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {
@@ -59,9 +59,9 @@ class _GridViewState extends State<_GridView> {
 
   var _dataList = <String>[];
 
-  Color _color1 = Colors.grey[100];
+  Color _black = Colors.black;
 
-  Color _color2 = Colors.grey[200];
+  Color _white = Colors.white;
 
   @override
   void initState() {
@@ -85,9 +85,12 @@ class _GridViewState extends State<_GridView> {
         }
         return Container(
           height: 50,
-          color: index % 2 == 0 ? _color1 : _color2,
+          color: index % 2 == 0 ? _black : _white,
           child: Center(
-            child: Text("$index"),
+            child: Text(
+              "$index",
+              style: TextStyle(color: index % 2 == 0 ? _white : _black),
+            ),
           ),
         );
       },
@@ -108,8 +111,7 @@ class _GridViewState extends State<_GridView> {
 }
 
 class _SimpleGridViewPage extends BaseDemoPage {
-  _SimpleGridViewPage()
-      : super('Flutter Simple GridView Demo', includeScrollView: false);
+  _SimpleGridViewPage() : super('Simple GridView', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {
