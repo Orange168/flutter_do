@@ -37,7 +37,7 @@ class _ScaffoldPageState extends State<ScaffoldPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter Do"),
+        title: Text("Scaffold"),
         centerTitle: false,
         elevation: 10,
         leading: Builder(builder: (context) {

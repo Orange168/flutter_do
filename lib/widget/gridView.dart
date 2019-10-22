@@ -7,39 +7,63 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
-class GridViewPage extends BaseDemoPage {
-  GridViewPage() : super('GridView', includeScrollView: false);
+class SimpleGridViewPage extends BaseDemoPage {
+  SimpleGridViewPage() : super('Simple GridView', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          RaisedButton(
-            child: Text("SimpleGridViewPage"),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return _SimpleGridViewPage();
-              }));
-            },
+    return Column(
+      children: <Widget>[
+        Flexible(
+          flex: 1,
+          child: GridView(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 1.0,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+              ),
+              children: _generateWidget(10, Colors.lightBlue)),
+        ),
+        Flexible(
+          flex: 1,
+          child: GridView.count(
+            scrollDirection: Axis.horizontal,
+            crossAxisCount: 2,
+            childAspectRatio: 1.0,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            children: _generateWidget(20, Colors.teal),
           ),
-          RaisedButton(
-            child: Text("GridViewPage"),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return _GridViewPage();
-              }));
-            },
+        ),
+        Flexible(
+          flex: 1,
+          child: GridView.extent(
+            maxCrossAxisExtent: 70,
+            scrollDirection: Axis.horizontal,
+            childAspectRatio: 1.0,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            children: _generateWidget(10, Colors.brown),
           ),
-        ],
-      ),
+        ),
+      ],
     );
+  }
+
+  List<Widget> _generateWidget(int size, Color color) {
+    List list = new List<Widget>();
+    for (int i = 0; i < size; i++) {
+      list.add(Container(
+        color: color,
+      ));
+    }
+    return list;
   }
 }
 
-class _GridViewPage extends BaseDemoPage {
-  _GridViewPage() : super('GridView', includeScrollView: false);
+class GridViewPage extends BaseDemoPage {
+  GridViewPage() : super('GridView', includeScrollView: false);
 
   @override
   Widget generateChildren(BuildContext context) {
@@ -55,7 +79,7 @@ class _GridView extends StatefulWidget {
 }
 
 class _GridViewState extends State<_GridView> {
-  static const MAX_SIZE = 90;
+  static const MAX_SIZE = 150;
 
   var _dataList = <String>[];
 
@@ -107,60 +131,5 @@ class _GridViewState extends State<_GridView> {
         _dataList.addAll(list);
       });
     });
-  }
-}
-
-class _SimpleGridViewPage extends BaseDemoPage {
-  _SimpleGridViewPage() : super('Simple GridView', includeScrollView: false);
-
-  @override
-  Widget generateChildren(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Flexible(
-          flex: 1,
-          child: GridView(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                childAspectRatio: 1.0,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-              ),
-              children: _generateWidget(10, Colors.lightBlue)),
-        ),
-        Flexible(
-          flex: 1,
-          child: GridView.count(
-            scrollDirection: Axis.horizontal,
-            crossAxisCount: 2,
-            childAspectRatio: 1.0,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            children: _generateWidget(20, Colors.teal),
-          ),
-        ),
-        Flexible(
-          flex: 1,
-          child: GridView.extent(
-            maxCrossAxisExtent: 70,
-            scrollDirection: Axis.horizontal,
-            childAspectRatio: 1.0,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            children: _generateWidget(10, Colors.brown),
-          ),
-        ),
-      ],
-    );
-  }
-
-  List<Widget> _generateWidget(int size, Color color) {
-    List list = new List<Widget>();
-    for (int i = 0; i < size; i++) {
-      list.add(Container(
-        color: color,
-      ));
-    }
-    return list;
   }
 }
