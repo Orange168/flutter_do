@@ -12,8 +12,8 @@ import 'package:flutter_do/common/page.dart';
  * GitHub：https://github.com/leavesC
  * Blog：https://www.jianshu.com/u/9df45b87cfdf
  */
-class WaveLoadingViewPage extends BaseDemoPage {
-  WaveLoadingViewPage() : super("CustomPaint", includeScrollView: true);
+class WaveLoadingWidgetPage extends BaseDemoPage {
+  WaveLoadingWidgetPage() : super("WaveLoadingWidget", includeScrollView: true);
 
   @override
   Widget generateChildren(BuildContext context) {
@@ -21,15 +21,26 @@ class WaveLoadingViewPage extends BaseDemoPage {
       width: 200,
       color: Colors.lightGreen,
       height: 200,
-      child: CustomPaint(
-        size: Size(150, 150),
-        painter: WaveLoadingWidget(),
-      ),
+      child: WaveLoadingWidget(),
     );
   }
 }
 
-class WaveLoadingWidget extends CustomPainter {
+class WaveLoadingWidget extends StatefulWidget {
+  @override
+  _WaveLoadingWidgetState createState() => _WaveLoadingWidgetState();
+}
+
+class _WaveLoadingWidgetState extends State<WaveLoadingWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: WaveLoadingPainter(),
+    );
+  }
+}
+
+class WaveLoadingPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     double side = min(size.width, size.height);

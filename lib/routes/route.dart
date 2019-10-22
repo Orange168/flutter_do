@@ -2,6 +2,7 @@ import 'dart:core';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_do/container/align.dart';
 import 'package:flutter_do/container/blur.dart';
 import 'package:flutter_do/container/clip.dart';
 import 'package:flutter_do/container/constrainedBox.dart';
@@ -21,7 +22,6 @@ import 'package:flutter_do/fun/gestureDetector.dart';
 import 'package:flutter_do/fun/inheritedWidget.dart';
 import 'package:flutter_do/fun/listener.dart';
 import 'package:flutter_do/fun/willPopScope.dart';
-import 'package:flutter_do/container/align.dart';
 import 'package:flutter_do/model/category.dart';
 import 'package:flutter_do/widget/button.dart';
 import 'package:flutter_do/widget/dialog.dart';
@@ -35,7 +35,7 @@ import 'package:flutter_do/widget/switch_checkbox.dart';
 import 'package:flutter_do/widget/text.dart';
 
 final List<Map<String, Widget>> pathToWidgetMap = [
-  {"/widget/Text": WaveLoadingViewPage()},
+  {"/widget/Text": TextPage()},
   {"/widget/Button": ButtonPage()},
   {"/widget/Image": ImagePage()},
   {"/widget/SwitchCheckbox": SwitchCheckboxPage()},
@@ -47,7 +47,6 @@ final List<Map<String, Widget>> pathToWidgetMap = [
   {"/widget/SimpleGridView": SimpleGridViewPage()},
   {"/widget/GridView": GridViewPage()},
   {"/widget/Dialog": DialogPage()},
-
   {"/container/Scaffold": ScaffoldPage()},
   {"/container/ConstrainedBox": ConstrainedBoxPage()},
   {"/container/DecoratedBox": DecoratedBoxPage()},
@@ -58,7 +57,6 @@ final List<Map<String, Widget>> pathToWidgetMap = [
   {"/container/Padding": PaddingPage()},
   {"/container/Wrap": WrapPage()},
   {"/container/Stack": StackPage()},
-
   {"/fun/Transform": TransformPage()},
   {"/fun/Blur": BlurPage()},
   {"/fun/Clip": ClipPage()},
@@ -66,9 +64,9 @@ final List<Map<String, Widget>> pathToWidgetMap = [
   {"/fun/InheritedWidget": InheritedWidgetPage()},
   {"/fun/GestureDetector": GestureDetectorPage()},
   {"/fun/Listener": ListenerPage()},
-
   {"/customWidget/GradientButton": GradientButtonPage()},
-  {"/customWidget/CustomPaint": CustomPaintPage()},
+  {"/customWidget/TaijiWidget": TaijiWidgetPage()},
+  {"/customWidget/WaveLoadingWidget": WaveLoadingWidgetPage()},
 ];
 
 final Map<String, IconData> icons = {
@@ -102,7 +100,8 @@ final Map<String, IconData> icons = {
   "/fun/Listener": Icons.screen_share,
   "/fun/GestureDetector": Icons.gesture,
   "/customWidget/GradientButton": Icons.gradient,
-  "/customWidget/CustomPaint": Icons.swap_horizontal_circle,
+  "/customWidget/TaijiWidget": Icons.swap_horizontal_circle,
+  "/customWidget/WaveLoadingWidget": Icons.cloud_download,
 };
 
 String getWidgetCategory(String routePath) {

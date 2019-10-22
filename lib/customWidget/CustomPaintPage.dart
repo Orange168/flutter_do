@@ -10,32 +10,34 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_do/common/page.dart';
 
-class CustomPaintPage extends BaseDemoPage {
-  CustomPaintPage() : super("CustomPaint", includeScrollView: true);
+class TaijiWidgetPage extends BaseDemoPage {
+  TaijiWidgetPage() : super("TaijiWidgetPage", includeScrollView: true);
 
   @override
   Widget generateChildren(BuildContext context) {
     return Center(
       child: Column(
         children: <Widget>[
-          CustomPaint(
-            size: Size(300, 300),
-            painter: TaijiPainter(),
-          ),
-          CustomPaint(
-            size: Size(250, 250),
-            painter: TaijiPainter(),
-          ),
-          CustomPaint(
-            size: Size(200, 200),
-            painter: TaijiPainter(),
-          ),
-          CustomPaint(
-            size: Size(150, 150),
-            painter: TaijiPainter(),
-          ),
+          TaijiWidget(300),
+          TaijiWidget(250),
+          TaijiWidget(200),
+          TaijiWidget(150),
         ],
       ),
+    );
+  }
+}
+
+class TaijiWidget extends StatelessWidget {
+  final double side;
+
+  TaijiWidget(this.side);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      size: Size(side, side),
+      painter: TaijiPainter(),
     );
   }
 }
