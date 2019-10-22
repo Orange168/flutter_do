@@ -56,7 +56,7 @@ class _WidgetHomePageState extends State<WidgetHomePage> {
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          childAspectRatio: 0.8,
+          childAspectRatio: 0.88,
         ),
         itemCount: children.length,
         itemBuilder: (BuildContext context, int index) {
