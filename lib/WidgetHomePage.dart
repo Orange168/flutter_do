@@ -6,6 +6,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'model/category.dart';
 import 'routes/route.dart';
 
 class WidgetHomePage extends StatefulWidget {
@@ -22,16 +23,67 @@ class _WidgetHomePageState extends State<WidgetHomePage> {
 
   @override
   Widget build(BuildContext context) {
+//    return Container(
+//      margin: EdgeInsets.only(top: 0),
+//      child: GridView.builder(
+//        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//          crossAxisCount: 3,
+//          childAspectRatio: 1.0,
+//        ),
+//        itemCount: pathToWidgetMap.length,
+//        itemBuilder: (BuildContext context, int index) {
+//          String routePath = pathToWidgetMap[index].keys.first;
+//          return GestureDetector(
+//            child: Container(
+//              color: index % 2 == 0 ? _color1 : _color2,
+//              child: Center(
+//                child: Column(
+//                  mainAxisSize: MainAxisSize.min,
+//                  children: <Widget>[
+//                    Icon(Icons.share),
+//                    Text(
+//                      "${getRouteTag(routePath)}",
+//                      style: TextStyle(
+//                        color: Colors.black87,
+//                        fontSize: 14,
+//                      ),
+//                    ),
+//                  ],
+//                ),
+//              ),
+//            ),
+//            onTap: () {
+//              Navigator.of(context).pushNamed(routePath);
+//            },
+//          );
+//        },
+//      ),
+//    );
+    return buildWidget();
+  }
+
+  Widget buildWidget() {
+    var categoryList = getCategoryList();
+    return ListView.builder(
+        itemCount: categoryList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return buildWidget2(categoryList[index]);
+        });
+  }
+
+  Widget buildWidget2(CategoryBean bean) {
+    var children = bean.children;
     return Container(
       margin: EdgeInsets.only(top: 0),
       child: GridView.builder(
+        physics: new NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           childAspectRatio: 1.0,
         ),
-        itemCount: pathToWidgetMap.length,
+        itemCount: children.length,
         itemBuilder: (BuildContext context, int index) {
-          String routePath = pathToWidgetMap[index].keys.first;
           return GestureDetector(
             child: Container(
               color: index % 2 == 0 ? _color1 : _color2,
@@ -41,9 +93,9 @@ class _WidgetHomePageState extends State<WidgetHomePage> {
                   children: <Widget>[
                     Icon(Icons.share),
                     Text(
-                      "${getRouteTag(routePath)}",
+                      "${children[index].name}",
                       style: TextStyle(
-                        color: Colors.black87,
+                        color: Colors.grey[900],
                         fontSize: 14,
                       ),
                     ),
@@ -52,7 +104,7 @@ class _WidgetHomePageState extends State<WidgetHomePage> {
               ),
             ),
             onTap: () {
-              Navigator.of(context).pushNamed(routePath);
+              Navigator.of(context).pushNamed(children[index].routePath);
             },
           );
         },
