@@ -2,6 +2,7 @@ import 'dart:core';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_do/container/blur.dart';
 import 'package:flutter_do/container/clip.dart';
 import 'package:flutter_do/container/container.dart';
 import 'package:flutter_do/container/decoratedBox.dart';
@@ -54,6 +55,7 @@ final List<Map<String, Widget>> pathToWidgetMap = [
   {"/container/Padding": PaddingPage()},
   {"/container/Container": ContainerPage()},
   {"/container/Scaffold": ScaffoldPage()},
+  {"/container/Blur": BlurPage()},
   {"/container/Clip": ClipPage()},
   {"/container/DecoratedBox": DecoratedBoxPage()},
   {"/container/Transform": TransformPage()},
@@ -87,6 +89,7 @@ final Map<String, IconData> icons = {
   "/container/Padding": Icons.crop,
   "/container/Container": Icons.edit_location,
   "/container/Scaffold": Icons.wifi_tethering,
+  "/container/Blur": Icons.blur_on,
   "/container/Clip": Icons.all_inclusive,
   "/container/DecoratedBox": Icons.markunread_mailbox,
   "/container/Transform": Icons.directions_transit,
