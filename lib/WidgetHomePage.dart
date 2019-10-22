@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'model/category.dart';
 import 'routes/route.dart';
 
+Color bgColor = Colors.grey[200];
+
 class WidgetHomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -17,86 +19,73 @@ class WidgetHomePage extends StatefulWidget {
 }
 
 class _WidgetHomePageState extends State<WidgetHomePage> {
-  Color _color1 = Colors.grey[100];
-
-  Color _color2 = Colors.grey[200];
-
   @override
   Widget build(BuildContext context) {
-//    return Container(
-//      margin: EdgeInsets.only(top: 0),
-//      child: GridView.builder(
-//        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//          crossAxisCount: 3,
-//          childAspectRatio: 1.0,
-//        ),
-//        itemCount: pathToWidgetMap.length,
-//        itemBuilder: (BuildContext context, int index) {
-//          String routePath = pathToWidgetMap[index].keys.first;
-//          return GestureDetector(
-//            child: Container(
-//              color: index % 2 == 0 ? _color1 : _color2,
-//              child: Center(
-//                child: Column(
-//                  mainAxisSize: MainAxisSize.min,
-//                  children: <Widget>[
-//                    Icon(Icons.share),
-//                    Text(
-//                      "${getRouteTag(routePath)}",
-//                      style: TextStyle(
-//                        color: Colors.black87,
-//                        fontSize: 14,
-//                      ),
-//                    ),
-//                  ],
-//                ),
-//              ),
-//            ),
-//            onTap: () {
-//              Navigator.of(context).pushNamed(routePath);
-//            },
-//          );
-//        },
-//      ),
-//    );
     return buildWidget();
   }
 
   Widget buildWidget() {
     var categoryList = getCategoryList();
-    return ListView.builder(
-        itemCount: categoryList.length,
-        itemBuilder: (BuildContext context, int index) {
-          return buildWidget2(categoryList[index]);
-        });
+    return Container(
+      color: bgColor,
+      child: Container(
+        decoration: BoxDecoration(
+          color: bgColor,
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+        ),
+        child: ListView.separated(
+            itemCount: categoryList.length,
+            separatorBuilder: (BuildContext context, int index) {
+              return SizedBox(
+                height: 20,
+              );
+            },
+            itemBuilder: (BuildContext context, int index) {
+              return buildGridWidget(categoryList[index]);
+            }),
+      ),
+    );
   }
 
-  Widget buildWidget2(CategoryBean bean) {
+  Widget buildGridWidget(CategoryBean bean) {
     var children = bean.children;
     return Container(
       margin: EdgeInsets.only(top: 0),
       child: GridView.builder(
-        physics: new NeverScrollableScrollPhysics(),
+        physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          childAspectRatio: 1.0,
+          childAspectRatio: 0.8,
         ),
         itemCount: children.length,
         itemBuilder: (BuildContext context, int index) {
+          double padding;
+          if (index % 3 <= 1) {
+            padding = 1.5;
+          } else {
+            padding = 0;
+          }
           return GestureDetector(
             child: Container(
-              color: index % 2 == 0 ? _color1 : _color2,
+              color: Colors.white,
+              margin: EdgeInsets.only(right: padding, bottom: 1.5),
               child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Icon(Icons.share),
+                    Icon(
+                      Icons.settings,
+                      color: Colors.lightBlue,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       "${children[index].name}",
                       style: TextStyle(
-                        color: Colors.grey[900],
-                        fontSize: 14,
+                        color: Colors.grey[800],
+                        fontSize: 13,
                       ),
                     ),
                   ],
@@ -110,10 +99,5 @@ class _WidgetHomePageState extends State<WidgetHomePage> {
         },
       ),
     );
-  }
-
-  String getRouteTag(String routePath) {
-    List<String> temp = routePath.split("/");
-    return temp[temp.length - 1];
   }
 }
