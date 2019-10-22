@@ -81,10 +81,6 @@ class _MainPageState extends State<MainPage>
   }
 }
 
-class CategoryBean {}
-
-class WidgetBean {}
-
 class CategoryHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

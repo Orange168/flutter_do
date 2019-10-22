@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'dart:core';
 
 import 'package:flutter/cupertino.dart';
@@ -21,6 +20,7 @@ import 'package:flutter_do/layout/flex.dart';
 import 'package:flutter_do/layout/row_column.dart';
 import 'package:flutter_do/layout/stack.dart';
 import 'package:flutter_do/layout/wrap.dart';
+import 'package:flutter_do/model/category.dart';
 import 'package:flutter_do/widget/button.dart';
 import 'package:flutter_do/widget/dialog.dart';
 import 'package:flutter_do/widget/form.dart';
@@ -79,25 +79,30 @@ String getWidgetTag(String routePath) {
   return "";
 }
 
-String test() {
-  Map<String, List<Map<String, Widget>>> map = HashMap();
-  List<String> categoryList = [];
+List<CategoryBean> getCategoryList() {
+  List<CategoryBean> categoryBeanList = [];
+  CategoryBean categoryContains(String category) {
+    for (var value in categoryBeanList) {
+      if (value.name == category) {
+        return value;
+      }
+    }
+    return null;
+  }
+
   pathToWidgetMap.forEach((element) {
     element.forEach((path, widget) {
+      WidgetBean widgetBean = new WidgetBean(getWidgetTag(path), path);
       var category = getWidgetCategory(path);
-      if (categoryList.contains(category)) {
-        map[category].add({path: widget});
+      var bean = categoryContains(category);
+      if (bean == null) {
+        CategoryBean categoryBean =
+            new CategoryBean(category, []..add(widgetBean));
+        categoryBeanList.add(categoryBean);
       } else {
-        categoryList.add(category);
-        List<Map<String, Widget>> list = [];
-        list.add({path: widget});
-        map[category] = list;
+        bean.children.add(widgetBean);
       }
     });
   });
-  categoryList.forEach((category) {
-    for (var value in map[category]) {
-      print(value.keys);
-    }
-  });
+  return categoryBeanList;
 }
