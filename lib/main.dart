@@ -1,4 +1,4 @@
-/**
+import 'package:flutter/cupertino.dart';/**
  * 作者：leavesC
  * 时间：2019/10/15 10:32
  * 描述：
@@ -6,19 +6,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_do/routes/route.dart';
 
-import 'mainTest.dart';
+import 'WidgetHomePage.dart';
+import 'routes/route.dart';
 
 void main() => runApp(MainApp());
 
-class MyApp extends StatelessWidget {
+const title = "Flutter Do";
+
+class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Do',
+      title: title,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Do'),
+      home: MainPage(),
       onGenerateRoute: _generateRoute,
     );
   }
@@ -34,49 +37,69 @@ MaterialPageRoute _generateRoute(RouteSettings settings) {
       settings: settings);
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
+class MainPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<StatefulWidget> createState() {
+    return _MainPageState();
+  }
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MainPageState extends State<MainPage>
+    with SingleTickerProviderStateMixin {
+  final List<String> _tabs = ["Widget", "None", "None"];
+
+  List<Widget> _children;
+
+  TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: _tabs.length, vsync: this);
+    _tabController.addListener(() {});
+    _children = [
+      Container(
+        alignment: Alignment.center,
+        child: WidgetHomePage(),
+      ),
+      _generateNoneWidget(),
+      _generateNoneWidget(),
+    ];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _tabController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<Widget> widgetList = [];
-    pathToWidgetMap.forEach((element) {
-      element.keys.forEach((element) {
-        widgetList.add(_generateButton(context, element));
-      });
-    });
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
+        elevation: 10,
+        bottom: TabBar(
+            isScrollable: false,
+            controller: _tabController,
+            tabs: _tabs.map((e) => Tab(text: e)).toList()),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Wrap(
-            spacing: 4,
-            children: widgetList,
-          ),
+      body: TabBarView(
+        controller: _tabController,
+        children: _children,
+      ),
+    );
+  }
+
+  Widget _generateNoneWidget() {
+    return Center(
+      child: Text(
+        "None",
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 28,
         ),
       ),
     );
   }
-}
-
-String getRouteTag(String routePath) {
-  List<String> temp = routePath.split("/");
-  return temp[temp.length - 1];
-}
-
-Widget _generateButton(BuildContext context, String routePath, {String title}) {
-  return RaisedButton(
-    child: Text(title ?? getRouteTag(routePath)),
-    onPressed: () {
-      Navigator.of(context).pushNamed(routePath);
-    },
-  );
 }

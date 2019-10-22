@@ -75,7 +75,7 @@ class _WidgetHomePageState extends State<WidgetHomePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Icon(
-                      Icons.settings,
+                      icons[children[index].routePath],
                       color: Colors.lightBlue,
                     ),
                     SizedBox(

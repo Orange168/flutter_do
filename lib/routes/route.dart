@@ -63,6 +63,37 @@ final List<Map<String, Widget>> pathToWidgetMap = [
   {"/customWidget/CustomPaint": CustomPaintPage()},
 ];
 
+final Map<String, IconData> icons = {
+  "/widget/Text": Icons.text_format,
+  "/widget/Button": Icons.aspect_ratio,
+  "/widget/Image": Icons.image,
+  "/widget/SwitchCheckbox": Icons.check_box,
+  "/widget/Progress": Icons.access_time,
+  "/widget/Input": Icons.input,
+  "/widget/Form": Icons.format_color_text,
+  "/widget/ListView": Icons.list,
+  "/widget/GridView": Icons.grid_on,
+  "/widget/Dialog": Icons.map,
+  "/layout/RowColumn": Icons.view_column,
+  "/layout/Flex": Icons.aspect_ratio,
+  "/layout/Align": Icons.format_align_center,
+  "/layout/Wrap": Icons.wrap_text,
+  "/layout/Stack": Icons.vertical_align_center,
+  "/layout/ConstrainedBox": Icons.inbox,
+  "/container/Padding": Icons.crop,
+  "/container/Container": Icons.edit_location,
+  "/container/Scaffold": Icons.wifi_tethering,
+  "/container/Clip": Icons.all_inclusive,
+  "/container/DecoratedBox": Icons.markunread_mailbox,
+  "/container/Transform": Icons.directions_transit,
+  "/fun/WillPopScope": Icons.arrow_back,
+  "/fun/InheritedWidget": Icons.share,
+  "/fun/Listener": Icons.screen_share,
+  "/fun/GestureDetector": Icons.gesture,
+  "/customWidget/GradientButton": Icons.gradient,
+  "/customWidget/CustomPaint": Icons.swap_horizontal_circle,
+};
+
 String getWidgetCategory(String routePath) {
   List<String> temp = routePath.split("/");
   if (temp.length > 0) {
