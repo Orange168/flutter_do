@@ -46,7 +46,9 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
-  final List _tabs = ["Widget", "Non", "Non"];
+  final List<String> _tabs = ["Widget", "None", "None"];
+
+  List<Widget> _children;
 
   TabController _tabController;
 
@@ -55,6 +57,20 @@ class _MainPageState extends State<MainPage>
     super.initState();
     _tabController = TabController(length: _tabs.length, vsync: this);
     _tabController.addListener(() {});
+    _children = [
+      Container(
+        alignment: Alignment.center,
+        child: WidgetHomePage(),
+      ),
+      _generateNoneWidget(),
+      _generateNoneWidget(),
+    ];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _tabController.dispose();
   }
 
   @override
@@ -70,20 +86,20 @@ class _MainPageState extends State<MainPage>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: _tabs.map((tab) {
-          return Container(
-            alignment: Alignment.center,
-            child: WidgetHomePage(),
-          );
-        }).toList(),
+        children: _children,
       ),
     );
   }
-}
 
-class CategoryHeaderWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return null;
+  Widget _generateNoneWidget() {
+    return Center(
+      child: Text(
+        "None",
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 28,
+        ),
+      ),
+    );
   }
 }
