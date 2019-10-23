@@ -3,7 +3,8 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_do/animation/AnimatedWidgetPage.dart';
-import 'package:flutter_do/animation/ScaleAnimationRoute.dart';
+import 'package:flutter_do/animation/HeroAnimationPage.dart';
+import 'package:flutter_do/animation/ScaleAnimationPage.dart';
 import 'package:flutter_do/container/align.dart';
 import 'package:flutter_do/container/blur.dart';
 import 'package:flutter_do/container/clip.dart';
@@ -40,6 +41,7 @@ final List<Map<String, Widget>> pathToWidgetMap = [
 
   {"/animation/ScaleAnimation": ScaleAnimationPage()},
   {"/animation/AnimationWidget": AnimationWidgetPage()},
+  {"/animation/HeroAnimation": HeroAnimationPage()},
 
   {"/widget/Text": TextPage()},
   {"/widget/Button": ButtonPage()},
@@ -100,6 +102,7 @@ final Map<String, IconData> icons = {
   "/container/DecoratedBox": Icons.markunread_mailbox,
   "/animation/ScaleAnimation": Icons.crop_landscape,
   "/animation/AnimationWidget": Icons.equalizer,
+  "/animation/HeroAnimation": Icons.face,
   "/fun/Blur": Icons.blur_on,
   "/fun/Clip": Icons.all_inclusive,
   "/fun/Transform": Icons.directions_transit,
