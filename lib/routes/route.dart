@@ -2,6 +2,8 @@ import 'dart:core';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_do/animation/AnimatedWidgetPage.dart';
+import 'package:flutter_do/animation/ScaleAnimationRoute.dart';
 import 'package:flutter_do/container/align.dart';
 import 'package:flutter_do/container/blur.dart';
 import 'package:flutter_do/container/clip.dart';
@@ -35,7 +37,11 @@ import 'package:flutter_do/widget/switch_checkbox.dart';
 import 'package:flutter_do/widget/text.dart';
 
 final List<Map<String, Widget>> pathToWidgetMap = [
-  {"/widget/Text": WaveLoadingWidgetPage()},
+
+  {"/animation/ScaleAnimation": ScaleAnimationPage()},
+  {"/animation/AnimationWidget": AnimationWidgetPage()},
+
+  {"/widget/Text": TextPage()},
   {"/widget/Button": ButtonPage()},
   {"/widget/Image": ImagePage()},
   {"/widget/SwitchCheckbox": SwitchCheckboxPage()},
@@ -92,6 +98,8 @@ final Map<String, IconData> icons = {
   "/container/Container": Icons.edit_location,
   "/container/Scaffold": Icons.wifi_tethering,
   "/container/DecoratedBox": Icons.markunread_mailbox,
+  "/animation/ScaleAnimation": Icons.crop_landscape,
+  "/animation/AnimationWidget": Icons.equalizer,
   "/fun/Blur": Icons.blur_on,
   "/fun/Clip": Icons.all_inclusive,
   "/fun/Transform": Icons.directions_transit,
