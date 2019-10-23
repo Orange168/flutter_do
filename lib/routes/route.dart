@@ -40,11 +40,11 @@ import 'package:flutter_do/widget/switch_checkbox.dart';
 import 'package:flutter_do/widget/text.dart';
 
 final List<Map<String, Widget>> pathToWidgetMap = [
-  {"/animation/ScaleAnimation": ScaleAnimationPage()},
-  {"/animation/AnimationWidget": AnimationWidgetPage()},
-  {"/animation/HeroAnimation": HeroAnimationPage()},
-  {"/animation/StaggerAnimation": StaggerAnimationPage()},
-  {"/animation/AnimationContainer": AnimationContainerPage()},
+
+  {"/customWidget/GradientButton": GradientButtonPage()},
+  {"/customWidget/TaijiWidget": TaijiWidgetPage()},
+  {"/customWidget/WaveLoadingWidget": WaveLoadingWidgetPage()},
+
   {"/widget/Text": TextPage()},
   {"/widget/Button": ButtonPage()},
   {"/widget/Image": ImagePage()},
@@ -74,9 +74,11 @@ final List<Map<String, Widget>> pathToWidgetMap = [
   {"/fun/InheritedWidget": InheritedWidgetPage()},
   {"/fun/GestureDetector": GestureDetectorPage()},
   {"/fun/Listener": ListenerPage()},
-  {"/customWidget/GradientButton": GradientButtonPage()},
-  {"/customWidget/TaijiWidget": TaijiWidgetPage()},
-  {"/customWidget/WaveLoadingWidget": WaveLoadingWidgetPage()},
+  {"/animation/ScaleAnimation": ScaleAnimationPage()},
+  {"/animation/AnimationWidget": AnimationWidgetPage()},
+  {"/animation/HeroAnimation": HeroAnimationPage()},
+  {"/animation/StaggerAnimation": StaggerAnimationPage()},
+  {"/animation/AnimationContainer": AnimationContainerPage()},
 ];
 
 final Map<String, IconData> icons = {
