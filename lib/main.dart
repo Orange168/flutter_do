@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_do/routes/route.dart';
 
-import 'widgetHome.dart';
+import 'widget_home.dart';
 import 'routes/route.dart';
 
 void main() => runApp(MainApp());
