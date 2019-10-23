@@ -22,17 +22,11 @@ abstract class BaseDemoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return _HomePage(
       title: title ?? "Flutter Do",
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: _HomePage(
-        title: title ?? "Flutter Do",
-        buildWidget: generateChildren,
-        padding: padding ?? 0,
-        includeScrollView: includeScrollView,
-      ),
+      buildWidget: generateChildren,
+      padding: padding ?? 0,
+      includeScrollView: includeScrollView,
     );
   }
 
