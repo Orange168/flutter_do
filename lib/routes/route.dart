@@ -2,9 +2,11 @@ import 'dart:core';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_do/animation/AnimatedWidgetPage.dart';
-import 'package:flutter_do/animation/HeroAnimationPage.dart';
-import 'package:flutter_do/animation/ScaleAnimationPage.dart';
+import 'package:flutter_do/animation/animation_container.dart';
+import 'package:flutter_do/animation/animation_widget.dart';
+import 'package:flutter_do/animation/hero_animation.dart';
+import 'package:flutter_do/animation/scale_animation.dart';
+import 'package:flutter_do/animation/stagger_animationPage.dart';
 import 'package:flutter_do/container/align.dart';
 import 'package:flutter_do/container/blur.dart';
 import 'package:flutter_do/container/clip.dart';
@@ -18,9 +20,9 @@ import 'package:flutter_do/container/scaffold.dart';
 import 'package:flutter_do/container/stack.dart';
 import 'package:flutter_do/container/transform.dart';
 import 'package:flutter_do/container/wrap.dart';
-import 'package:flutter_do/customWidget/CustomPaintPage.dart';
-import 'package:flutter_do/customWidget/GradientButton.dart';
-import 'package:flutter_do/customWidget/WaveLoadingWidgetPage.dart';
+import 'package:flutter_do/customWidget/gradient_button.dart';
+import 'package:flutter_do/customWidget/taiji_widget.dart';
+import 'package:flutter_do/customWidget/wave_loading_widget.dart';
 import 'package:flutter_do/fun/gestureDetector.dart';
 import 'package:flutter_do/fun/inheritedWidget.dart';
 import 'package:flutter_do/fun/listener.dart';
@@ -38,11 +40,11 @@ import 'package:flutter_do/widget/switch_checkbox.dart';
 import 'package:flutter_do/widget/text.dart';
 
 final List<Map<String, Widget>> pathToWidgetMap = [
-
   {"/animation/ScaleAnimation": ScaleAnimationPage()},
   {"/animation/AnimationWidget": AnimationWidgetPage()},
   {"/animation/HeroAnimation": HeroAnimationPage()},
-
+  {"/animation/StaggerAnimation": StaggerAnimationPage()},
+  {"/animation/AnimationContainer": AnimationContainerPage()},
   {"/widget/Text": TextPage()},
   {"/widget/Button": ButtonPage()},
   {"/widget/Image": ImagePage()},
@@ -103,6 +105,8 @@ final Map<String, IconData> icons = {
   "/animation/ScaleAnimation": Icons.crop_landscape,
   "/animation/AnimationWidget": Icons.equalizer,
   "/animation/HeroAnimation": Icons.face,
+  "/animation/StaggerAnimation": Icons.map,
+  "/animation/AnimationContainer": Icons.scatter_plot,
   "/fun/Blur": Icons.blur_on,
   "/fun/Clip": Icons.all_inclusive,
   "/fun/Transform": Icons.directions_transit,
