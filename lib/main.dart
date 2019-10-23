@@ -7,8 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_do/routes/route.dart';
 
-import 'widget_home.dart';
 import 'routes/route.dart';
+import 'widget_home.dart';
 
 void main() => runApp(MainApp());
 
@@ -47,7 +47,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
-  final List<String> _tabs = ["Widget", "None", "None"];
+  final List<String> _tabs = getAllCategory();
 
   List<Widget> _children;
 
@@ -58,14 +58,16 @@ class _MainPageState extends State<MainPage>
     super.initState();
     _tabController = TabController(length: _tabs.length, vsync: this);
     _tabController.addListener(() {});
-    _children = [
-      Container(
-        alignment: Alignment.center,
-        child: WidgetHomePage(),
-      ),
-      _generateNoneWidget(),
-      _generateNoneWidget(),
-    ];
+    _children = _buildTabHomePage();
+  }
+
+  List<Widget> _buildTabHomePage() {
+    List<Widget> list = [];
+    var categoryList = getAllCategory();
+    categoryList.forEach((bean) {
+      list.add(WidgetHomePage(bean));
+    });
+    return list;
   }
 
   @override
@@ -81,25 +83,13 @@ class _MainPageState extends State<MainPage>
         title: Text(title),
         elevation: 10,
         bottom: TabBar(
-            isScrollable: false,
+            isScrollable: true,
             controller: _tabController,
             tabs: _tabs.map((e) => Tab(text: e)).toList()),
       ),
       body: TabBarView(
         controller: _tabController,
         children: _children,
-      ),
-    );
-  }
-
-  Widget _generateNoneWidget() {
-    return Center(
-      child: Text(
-        "None",
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 28,
-        ),
       ),
     );
   }

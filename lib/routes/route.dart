@@ -40,11 +40,9 @@ import 'package:flutter_do/widget/switch_checkbox.dart';
 import 'package:flutter_do/widget/text.dart';
 
 final List<Map<String, Widget>> pathToWidgetMap = [
-
   {"/customWidget/GradientButton": GradientButtonPage()},
   {"/customWidget/TaijiWidget": TaijiWidgetPage()},
   {"/customWidget/WaveLoadingWidget": WaveLoadingWidgetPage()},
-
   {"/widget/Text": TextPage()},
   {"/widget/Button": ButtonPage()},
   {"/widget/Image": ImagePage()},
@@ -121,22 +119,6 @@ final Map<String, IconData> icons = {
   "/customWidget/WaveLoadingWidget": Icons.cloud_download,
 };
 
-String getWidgetCategory(String routePath) {
-  List<String> temp = routePath.split("/");
-  if (temp.length > 0) {
-    return temp[1];
-  }
-  return "";
-}
-
-String getWidgetTag(String routePath) {
-  List<String> temp = routePath.split("/");
-  if (temp.length > 0) {
-    return temp[temp.length - 1];
-  }
-  return "";
-}
-
 List<CategoryBean> getCategoryList() {
   List<CategoryBean> categoryBeanList = [];
   CategoryBean categoryContains(String category) {
@@ -150,8 +132,8 @@ List<CategoryBean> getCategoryList() {
 
   pathToWidgetMap.forEach((element) {
     element.forEach((path, widget) {
-      WidgetBean widgetBean = new WidgetBean(getWidgetTag(path), path);
-      var category = getWidgetCategory(path);
+      WidgetBean widgetBean = new WidgetBean(getTagByRoutePath(path), path);
+      var category = getCategoryByRoutePath(path);
       var bean = categoryContains(category);
       if (bean == null) {
         CategoryBean categoryBean =
@@ -163,4 +145,47 @@ List<CategoryBean> getCategoryList() {
     });
   });
   return categoryBeanList;
+}
+
+String getTagByRoutePath(String routePath) {
+  List<String> temp = routePath.split("/");
+  if (temp.length > 0) {
+    return temp[temp.length - 1];
+  }
+  return "";
+}
+
+String getCategoryByRoutePath(String routePath) {
+  List<String> temp = routePath.split("/");
+  if (temp.length > 0) {
+    return temp[1];
+  }
+  return "";
+}
+
+List<String> getAllCategory() {
+  List<String> categoryList = [];
+  pathToWidgetMap.forEach((element) {
+    element.forEach((path, widget) {
+      var category = getCategoryByRoutePath(path);
+      if (!categoryList.contains(category)) {
+        categoryList.add(category);
+      }
+    });
+  });
+  return categoryList;
+}
+
+CategoryBean getWidgetList(String target) {
+  List<WidgetBean> children = [];
+  pathToWidgetMap.forEach((element) {
+    element.forEach((path, widget) {
+      WidgetBean widgetBean = new WidgetBean(getTagByRoutePath(path), path);
+      var category = getCategoryByRoutePath(path);
+      if (category == target) {
+        children.add(widgetBean);
+      }
+    });
+  });
+  return CategoryBean(target, children);
 }

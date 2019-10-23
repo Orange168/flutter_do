@@ -6,54 +6,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'model/category.dart';
 import 'routes/route.dart';
 
 Color bgColor = Colors.grey[200];
 
 class WidgetHomePage extends StatefulWidget {
+  final String category;
+
+  WidgetHomePage(this.category);
+
   @override
   State<StatefulWidget> createState() {
-    return _WidgetHomePageState();
+    return _WidgetHomePageState(category);
   }
 }
 
 class _WidgetHomePageState extends State<WidgetHomePage> {
+  final String category;
+
+  _WidgetHomePageState(this.category);
+
   @override
   Widget build(BuildContext context) {
-    return buildWidget();
+    return buildGridWidget();
   }
 
-  Widget buildWidget() {
-    var categoryList = getCategoryList();
+  Widget buildGridWidget() {
+    var children = getWidgetList(category).children;
     return Container(
       color: bgColor,
-      child: Container(
-        decoration: BoxDecoration(
-          color: bgColor,
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-        ),
-        child: ListView.separated(
-            itemCount: categoryList.length,
-            separatorBuilder: (BuildContext context, int index) {
-              return SizedBox(
-                height: 20,
-              );
-            },
-            itemBuilder: (BuildContext context, int index) {
-              return buildGridWidget(categoryList[index]);
-            }),
-      ),
-    );
-  }
-
-  Widget buildGridWidget(CategoryBean bean) {
-    var children = bean.children;
-    return Container(
       margin: EdgeInsets.only(top: 0),
       child: GridView.builder(
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           childAspectRatio: 0.88,
