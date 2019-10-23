@@ -17,7 +17,7 @@ import 'package:flutter_do/container/transform.dart';
 import 'package:flutter_do/container/wrap.dart';
 import 'package:flutter_do/customWidget/CustomPaintPage.dart';
 import 'package:flutter_do/customWidget/GradientButton.dart';
-import 'package:flutter_do/customWidget/WaveLoadingView.dart';
+import 'package:flutter_do/customWidget/WaveLoadingWidgetPage.dart';
 import 'package:flutter_do/fun/gestureDetector.dart';
 import 'package:flutter_do/fun/inheritedWidget.dart';
 import 'package:flutter_do/fun/listener.dart';
@@ -35,7 +35,7 @@ import 'package:flutter_do/widget/switch_checkbox.dart';
 import 'package:flutter_do/widget/text.dart';
 
 final List<Map<String, Widget>> pathToWidgetMap = [
-  {"/widget/Text": TextPage()},
+  {"/widget/Text": WaveLoadingWidgetPage()},
   {"/widget/Button": ButtonPage()},
   {"/widget/Image": ImagePage()},
   {"/widget/SwitchCheckbox": SwitchCheckboxPage()},
