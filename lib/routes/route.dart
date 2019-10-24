@@ -40,9 +40,6 @@ import 'package:flutter_do/widget/switch_checkbox.dart';
 import 'package:flutter_do/widget/text.dart';
 
 final List<Map<String, Widget>> pathToWidgetMap = [
-  {"/customWidget/GradientButton": GradientButtonPage()},
-  {"/customWidget/TaijiWidget": TaijiWidgetPage()},
-  {"/customWidget/WaveLoadingWidget": WaveLoadingWidgetPage()},
   {"/widget/Text": TextPage()},
   {"/widget/Button": ButtonPage()},
   {"/widget/Image": ImagePage()},
@@ -77,6 +74,9 @@ final List<Map<String, Widget>> pathToWidgetMap = [
   {"/animation/HeroAnimation": HeroAnimationPage()},
   {"/animation/StaggerAnimation": StaggerAnimationPage()},
   {"/animation/AnimationContainer": AnimationContainerPage()},
+  {"/customWidget/GradientButton": GradientButtonPage()},
+  {"/customWidget/TaijiWidget": TaijiWidgetPage()},
+  {"/customWidget/WaveLoadingWidget": WaveLoadingWidgetPage()},
 ];
 
 final Map<String, IconData> icons = {

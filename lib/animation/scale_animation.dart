@@ -96,7 +96,7 @@ class _ScaleAnimationWidgetState extends State<_ScaleAnimationWidget>
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 }
