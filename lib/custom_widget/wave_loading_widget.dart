@@ -26,7 +26,7 @@ class WaveLoadingWidgetPage extends BaseDemoPage {
             width: 300,
             height: 300,
             child: WaveLoadingWidget(
-              text: "龍",
+              text: "锲",
               fontSize: 215,
               backgroundColor: Colors.lightBlue,
               foregroundColor: Colors.white,
@@ -37,7 +37,7 @@ class WaveLoadingWidgetPage extends BaseDemoPage {
             width: 250,
             height: 250,
             child: WaveLoadingWidget(
-              text: "真",
+              text: "而",
               fontSize: 175,
               backgroundColor: Colors.indigoAccent,
               foregroundColor: Colors.white,
@@ -48,11 +48,22 @@ class WaveLoadingWidgetPage extends BaseDemoPage {
             width: 200,
             height: 200,
             child: WaveLoadingWidget(
-              text: "叶",
+              text: "不",
               fontSize: 145,
               backgroundColor: Colors.redAccent,
               foregroundColor: Colors.lightBlue,
               waveColor: Colors.redAccent,
+            ),
+          ),
+          Container(
+            width: 150,
+            height: 150,
+            child: WaveLoadingWidget(
+              text: "舍",
+              fontSize: 125,
+              backgroundColor: Colors.amber,
+              foregroundColor: Colors.brown,
+              waveColor: Colors.amberAccent,
             ),
           ),
         ],
@@ -169,16 +180,22 @@ class _WaveLoadingWidgetState extends State<WaveLoadingWidget>
 }
 
 class WaveLoadingPainter extends CustomPainter {
+  //如果外部没有指定颜色值，则使用此默认颜色值
   static final Color defaultColor = Colors.lightBlue;
 
+  //画笔对象
   var _paint = Paint();
 
+  //圆形路径
   Path _circlePath = Path();
 
+  //波浪路径
   Path _wavePath = Path();
 
+  //要显示的文本
   final String text;
 
+  //字体大小
   final double fontSize;
 
   final double animatedValue;
@@ -210,29 +227,27 @@ class WaveLoadingPainter extends CustomPainter {
 
     _drawText(canvas: canvas, side: side, colors: backgroundColor);
 
-    double waveWidth = side * 0.8;
-    double waveHeight = side / 6;
-
     _circlePath.reset();
     _circlePath.addArc(Rect.fromLTWH(0, 0, side, side), 0, 2 * pi);
 
+    double waveWidth = side * 0.8;
+    double waveHeight = side / 6;
     _wavePath.reset();
     _wavePath.moveTo((animatedValue - 1) * waveWidth, radius);
-    for (double i = -waveWidth; i < side + waveWidth; i += waveWidth) {
+    for (double i = -waveWidth; i < side; i += waveWidth) {
       _wavePath.relativeQuadraticBezierTo(
           waveWidth / 4, -waveHeight, waveWidth / 2, 0);
       _wavePath.relativeQuadraticBezierTo(
           waveWidth / 4, waveHeight, waveWidth / 2, 0);
     }
     _wavePath.relativeLineTo(0, radius);
-    _wavePath.lineTo(0, side);
-    _wavePath.lineTo(0, radius);
+    _wavePath.lineTo(-waveWidth, side);
+    _wavePath.close();
 
     var combine = Path.combine(PathOperation.intersect, _circlePath, _wavePath);
     canvas.drawPath(combine, _paint);
 
     canvas.clipPath(combine);
-
     _drawText(canvas: canvas, side: side, colors: foregroundColor);
   }
 
