@@ -10,6 +10,8 @@ Basic Flutter apps, for flutter devs.
 - fun
 - customWidget
 
+扩展阅读：[Flutter 实战 - 用贝塞尔曲线画一个带文本的波浪球 Widget](https://juejin.im/post/5db5c03a6fb9a0208668e4f3)
+
 点击下载 apk 体验：[flutter_do](release/app-release.apk)
 
 或者扫码下载：
