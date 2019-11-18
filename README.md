@@ -17,9 +17,5 @@ Basic Flutter apps, for flutter devs.
 
 点击下载 apk 体验：[flutter_do](release/app-release.apk)
 
-或者扫码下载：
-
-![](release/qrcode.png)
-
-![](release/screenshot.gif)
+![](doc/screenshot.gif)
 
