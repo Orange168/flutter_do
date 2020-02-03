@@ -59,7 +59,7 @@ class _WidgetHomePageState extends State<WidgetHomePage> {
                   children: <Widget>[
                     Icon(
                       icons[children[index].routePath],
-                      color: Colors.lightBlue,
+                      color: Colors.green,
                     ),
                     SizedBox(
                       height: 10,
@@ -68,7 +68,8 @@ class _WidgetHomePageState extends State<WidgetHomePage> {
                       "${children[index].name}",
                       style: TextStyle(
                         color: Colors.grey[800],
-                        fontSize: 13,
+                        fontSize: 15,
+                        fontStyle: FontStyle.italic
                       ),
                     ),
                   ],

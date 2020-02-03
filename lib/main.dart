@@ -20,7 +20,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: title,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: MainPage(),
       onGenerateRoute: _generateRoute,
