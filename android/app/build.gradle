@@ -38,7 +38,7 @@ private static def getProperties(filePath, key) {
 }
 
 private static def getPrivateProperties(key) {
-    return getProperties(".\\doc\\properties.txt", key)
+    return getProperties("./doc/properties.txt", key)
 }
 
 def keyStorePath_ = getPrivateProperties("key.keyStorePath")
